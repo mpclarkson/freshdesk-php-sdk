@@ -1,0 +1,29 @@
+{
+    "name": "mpclarkson/freshdesk-php",
+    "description": "PHP Wrapper for the Freshdesk API (v2)",
+    "homepage": "https://github.com/mpclarkson/freshdesk-php",
+    "keywords": ["freshdesk", "customer service", "support", "helpdesk", "api"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Matthew Clarkson",
+            "email": "mpclarkson@hilenium.com",
+            "homepage": "http://mpclarkson.github.io/"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": ">=4.0,<6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.*",
+        "phpdocumentor/phpdocumentor": "2.*"
+    },
+    "autoload": {
+        "psr-4": {"Freshdesk\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": { "Freshdesk\\tests\\": "tests/" }
+    }
+
+}

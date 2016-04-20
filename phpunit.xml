@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Freshdesk APIs PHP wrapper">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="FRESHDESK_API_KEY" value="your_api_key_here"/>
+        <env name="FRESHDESK_DOMAIN" value="your_api_key_here"/>
+	</php>
+</phpunit>
