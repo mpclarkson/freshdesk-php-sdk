@@ -16,7 +16,12 @@ trait CreateTrait
      * @param null $end string
      * @return string
      */
-    abstract public function endpoint($end = null);
+    abstract protected function endpoint($end = null);
+
+    /**
+     * @return \Freshdesk\Api
+     */
+    abstract protected function api();
 
     /**
      *
@@ -37,6 +42,6 @@ trait CreateTrait
      */
     public function create(array $data)
     {
-        $this->api->request('POST', $this->endpoint(), $data);
+        $this->api()->request('POST', $this->endpoint(), $data);
     }
 }

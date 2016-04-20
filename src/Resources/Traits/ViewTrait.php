@@ -8,14 +8,18 @@
 
 namespace Freshdesk\Resources\Traits;
 
-
 trait ViewTrait
 {
     /**
      * @param null $end string
      * @return string
      */
-    abstract public function endpoint($end = null);
+    abstract protected function endpoint($end = null);
+
+    /**
+     * @return \Freshdesk\Api
+     */
+    abstract protected function api();
 
     /**
      *
@@ -37,7 +41,7 @@ trait ViewTrait
      */
     public function view($id, array $query = null)
     {
-        $this->api->request('GET', $this->endpoint($id), null, $query);
+        $this->api()->request('GET', $this->endpoint($id), null, $query);
     }
 
 }

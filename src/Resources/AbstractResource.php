@@ -17,7 +17,7 @@ abstract class AbstractResource
     /**
      * @var Api
      */
-    protected $api;
+    private $api;
 
     /**
      * @var String
@@ -41,5 +41,13 @@ abstract class AbstractResource
     protected function endpoint($id = null)
     {
         return $id == null ? $this->endpoint : $this->endpoint . '/' . $id;
+    }
+
+    /**
+     * @return Api
+     */
+    protected function api()
+    {
+        return $this->api;
     }
 }

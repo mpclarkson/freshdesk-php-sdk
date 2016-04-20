@@ -16,7 +16,12 @@ trait DeleteTrait
      * @param null $end string
      * @return string
      */
-    abstract public function endpoint($end = null);
+    abstract protected function endpoint($end = null);
+
+    /**
+     * @return \Freshdesk\Api
+     */
+    abstract protected function api();
 
     /**
      *
@@ -37,7 +42,7 @@ trait DeleteTrait
      */
     public function delete($id)
     {
-        $this->api->request('DELETE', $this->endpoint($id));
+        $this->api()->request('DELETE', $this->endpoint($id));
     }
 
 }

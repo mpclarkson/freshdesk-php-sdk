@@ -48,7 +48,7 @@ class Agent extends AbstractResource
      */
     public function current(array $query = null)
     {
-        return $this->api->request('GET', $this->endpoint('me'), null, $query);
+        return $this->api()->request('GET', $this->endpoint('me'), null, $query);
     }
 
 }

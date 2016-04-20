@@ -15,7 +15,12 @@ trait AllTrait
      * @param null $end string
      * @return string
      */
-    abstract public function endpoint($end = null);
+    abstract protected function endpoint($end = null);
+
+    /**
+     * @return \Freshdesk\Api
+     */
+    abstract protected function api();
 
     /**
      * Get a list of all agents for the given query parameters eg $query = ['page' => 2]
@@ -34,7 +39,7 @@ trait AllTrait
      */
     public function all(array $query = null)
     {
-        $this->api->request('GET', $this->endpoint(), null, $query);
+        $this->api()->request('GET', $this->endpoint(), null, $query);
     }
 
 }

@@ -49,7 +49,7 @@ class Company extends AbstractResource
      */
     public function fields(array $query = null)
     {
-        return $this->api->request('GET', '/company_fields', null, $query);
+        return $this->api()->request('GET', '/company_fields', null, $query);
     }
 
 }

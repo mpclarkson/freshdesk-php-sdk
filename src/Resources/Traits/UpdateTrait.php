@@ -16,7 +16,12 @@ trait UpdateTrait
      * @param null $end string
      * @return string
      */
-    abstract public function endpoint($end = null);
+    abstract protected function endpoint($end = null);
+
+    /**
+     * @return \Freshdesk\Api
+     */
+    abstract protected function api();
 
     /**
      *
@@ -38,7 +43,7 @@ trait UpdateTrait
      */
     public function update($id, array $data)
     {
-        return $this->api->request('PUT', $this->endpoint($id), $data);
+        return $this->api()->request('PUT', $this->endpoint($id), $data);
     }
 
 }

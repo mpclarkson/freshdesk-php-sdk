@@ -51,7 +51,7 @@ class Ticket extends AbstractResource
     {
         $end = $id . '/restore';
 
-        return $this->api->request('PUT', $this->endpoint($end));
+        return $this->api()->request('PUT', $this->endpoint($end));
     }
 
     /**
@@ -72,7 +72,7 @@ class Ticket extends AbstractResource
      */
     public function fields(array $query = null)
     {
-        return $this->api->request('GET', 'ticket_fields', null, $query);
+        return $this->api()->request('GET', '/ticket_fields', null, $query);
     }
 
     /**
@@ -95,7 +95,7 @@ class Ticket extends AbstractResource
     {
         $end = $id . '/conversations';
 
-        return $this->api->request('GET', $this->endpoint($end), null, $query);
+        return $this->api()->request('GET', $this->endpoint($end), null, $query);
     }
 
     /**
@@ -118,6 +118,6 @@ class Ticket extends AbstractResource
     {
         $end = $id . '/time_entries';
 
-        return $this->api->request('GET', $this->endpoint($end), null, $query);
+        return $this->api()->request('GET', $this->endpoint($end), null, $query);
     }
 }
