@@ -5,8 +5,4 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <php>
-        <env name="FRESHDESK_API_KEY" value="your_api_key_here"/>
-        <env name="FRESHDESK_DOMAIN" value="your_api_key_here"/>
-	</php>
 </phpunit>
