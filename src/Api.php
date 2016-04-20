@@ -122,18 +122,19 @@ class Api
      * @throws RateLimitExceededException
      * @throws UnsupportedContentTypeException
      */
-    public function request($method, $endpoint, array $data = null, array $query = null) {
+    public function request($method, $endpoint, array $data = null, array $query = null)
+    {
 
         $options = ['json' => $data];
 
-        if(isset($query)) {
+        if (isset($query)) {
             $options['query'] = $query;
         }
 
         $url = $this->baseUrl . $endpoint;
 
         try {
-            switch($method) {
+            switch ($method) {
                 case 'GET':
                     return $this->client->get($url, $options)->json();
                 case 'POST':
@@ -145,8 +146,7 @@ class Api
                 default:
                     return null;
             }
-        }
-        catch (RequestException $e) {
+        } catch (RequestException $e) {
             throw $this->handleException($e);
         }
     }
@@ -158,7 +158,7 @@ class Api
      */
     private function handleException(RequestException $e)
     {
-        switch($e->getResponse()->getStatusCode()) {
+        switch ($e->getResponse()->getStatusCode()) {
             case 400:
                 return new ValidationException($e);
             case 401:
