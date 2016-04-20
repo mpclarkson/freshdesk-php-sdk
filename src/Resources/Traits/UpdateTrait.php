@@ -13,7 +13,7 @@ trait UpdateTrait
 {
 
     /**
-     * @param null $end string
+     * @param integer $end string
      * @return string
      */
     abstract protected function endpoint($end = null);
