@@ -1,7 +1,7 @@
 {
-    "name": "mpclarkson/freshdesk-php",
+    "name": "mpclarkson/freshdesk-php-sdk",
     "description": "PHP Wrapper for the Freshdesk API (v2)",
-    "homepage": "https://github.com/mpclarkson/freshdesk-php",
+    "homepage": "https://github.com/mpclarkson/freshdesk-php-sdk",
     "keywords": ["freshdesk", "customer service", "support", "helpdesk", "api"],
     "license": "Apache-2.0",
     "authors": [

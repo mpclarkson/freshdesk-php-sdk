@@ -14,7 +14,9 @@ class GroupApiTest extends TestCase
 {
     public function setUp()
     {
-        $this->api = new GroupApi($this->apiKey, $this->domain);
+        parent::setUp();
+
+        $this->class = GroupApi::class;
     }
 
     public function methodsThatShouldExist()

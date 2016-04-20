@@ -16,7 +16,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Abstract base class manage for authenticating with the Freshdesk API
+ * Class for interacting with the the Freshdesk Api (v2).
  *
  * @package Freshdesk
  * @category Freshdesk
@@ -24,6 +24,30 @@ use GuzzleHttp\Exception\RequestException;
  */
 class Api
 {
+    /**
+     * @var AgentApi
+     */
+    public $agents;
+
+    /**
+     * @var CompanyApi
+     */
+    public $companies;
+
+    /**
+     * @var ContactApi
+     */
+    public $contacts;
+
+    /**
+     * @var GroupApi
+     */
+    public $groups;
+
+    /**
+     * @var TicketApi
+     */
+    public $tickets;
 
     /**
      * @var Client
@@ -60,6 +84,12 @@ class Api
                 ]
             ]
         );
+
+        $this->agents = new AgentApi($this);
+        $this->companies = new CompanyApi($this);
+        $this->contacts = new ContactApi($this);
+        $this->groups = new GroupApi($this);
+        $this->tickets = new TicketApi($this);
     }
 
     /**
@@ -154,7 +184,7 @@ class Api
      * @param null $id
      * @return string
      */
-    protected function createEndpoint($endPoint, $id = null)
+    public function createEndpoint($endPoint, $id = null)
     {
         return $id == null ? $endPoint : $endPoint.'/'.$id;
     }

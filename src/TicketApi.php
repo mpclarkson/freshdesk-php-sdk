@@ -18,9 +18,23 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
-class TicketApi extends Api
+class TicketApi
 {
     const ENDPOINT = '/tickets';
+
+    /**
+     * @var Api
+     */
+    private $api;
+
+    /**
+     * CompanyApi constructor.
+     * @param Api $api
+     */
+    public function __construct(Api $api)
+    {
+        $this->api = $api;
+    }
 
     /**
      *
@@ -35,7 +49,7 @@ class TicketApi extends Api
      */
     public function create(array $data)
     {
-        return $this->request('POST', $this->endpoint(), $data);
+        $this->api->request('POST', $this->endpoint(), $data);
     }
 
     /**
@@ -51,7 +65,7 @@ class TicketApi extends Api
      */
     public function all(array $query = null)
     {
-        return $this->request('GET', $this->endpoint(), null, $query);
+        $this->api->request('GET', $this->endpoint(), null, $query);
     }
 
     /**
@@ -73,7 +87,7 @@ class TicketApi extends Api
      */
     public function view($id, array $query = null)
     {
-        return $this->request('GET', $this->endpoint($id), null, $query);
+        $this->api->request('GET', $this->endpoint($id), null, $query);
     }
 
     /**
@@ -89,7 +103,7 @@ class TicketApi extends Api
      */
     public function update($id, array $data = null)
     {
-        return $this->request('PUT', $this->endpoint($id), $data);
+        $this->api->request('PUT', $this->endpoint($id), $data);
     }
 
     /**
@@ -104,7 +118,7 @@ class TicketApi extends Api
      */
     public function delete($id)
     {
-        return $this->request('DELETE', $this->endpoint($id));
+        $this->api->request('DELETE', $this->endpoint($id));
     }
 
     /**
@@ -121,7 +135,7 @@ class TicketApi extends Api
     {
         $end = $id . '/restore';
 
-        return $this->request('PUT', $this->endpoint($end));
+        $this->api->request('PUT', $this->endpoint($end));
     }
 
     /**
@@ -137,7 +151,7 @@ class TicketApi extends Api
      */
     public function fields(array $query = null)
     {
-        return $this->request('GET', 'ticket_fields', null, $query);
+        $this->api->request('GET', 'ticket_fields', null, $query);
     }
 
     /**
@@ -155,7 +169,7 @@ class TicketApi extends Api
     {
         $end = $id . '/conversations';
 
-        return $this->request('GET', $this->endpoint($end), null, $query);
+        $this->api->request('GET', $this->endpoint($end), null, $query);
     }
 
     /**
@@ -173,12 +187,12 @@ class TicketApi extends Api
     {
         $end = $id . '/time_entries';
 
-        return $this->request('GET', $this->endpoint($end), null, $query);
+        $this->api->request('GET', $this->endpoint($end), null, $query);
     }
 
     private function endpoint($id = null)
     {
-        return $this->createEndpoint(self::ENDPOINT, $id);
+        return $this->api->createEndpoint(self::ENDPOINT, $id);
     }
 
 }

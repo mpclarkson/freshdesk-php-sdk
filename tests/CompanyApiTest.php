@@ -14,8 +14,10 @@ class CompanyApiTest extends TestCase
 {
     public function setUp()
     {
-        $this->api = new CompanyApi($this->apiKey, $this->domain);
-    }
+        parent::setUp();
+
+        $this->class = CompanyApi::class;
+    } 
 
     public function methodsThatShouldExist()
     {

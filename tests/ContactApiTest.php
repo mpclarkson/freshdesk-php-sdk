@@ -12,9 +12,12 @@ use Freshdesk\ContactApi;
  */
 class ContactApiTest extends TestCase
 {
+
     public function setUp()
     {
-        $this->api = new ContactApi($this->apiKey, $this->domain);
+        parent::setUp();
+
+        $this->class = ContactApi::class;
     }
 
     public function methodsThatShouldExist()

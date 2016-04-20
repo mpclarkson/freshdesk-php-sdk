@@ -14,7 +14,8 @@ class AgentApiTest extends TestCase
 {
     public function setUp()
     {
-        $this->api = new AgentApi($this->apiKey, $this->domain);
+        parent::setUp();
+        $this->class = AgentApi::class;
     }
 
     public function methodsThatShouldExist()

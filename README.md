@@ -11,13 +11,16 @@ Quickstart
 -------------------
 ```php
 require __DIR__ . '/vendor/autoload.php';
-use \Freshdesk\TicketApi;
+use \Freshdesk\Api;
 
-$api = new TicketApi("your_freshdesk_api_key", "your_freshdesk_domain");
+$api = new Api("your_freshdesk_api_key", "your_freshdesk_domain");
 
-$allTickets = $api->all(); //List all tickets
+$all = $api->tickets->all(); //List all tickets
+$existing = $api->tickets->view($id); //View a ticket with
+$new = $api->tickets->create($data); //Create a new ticket
+$updated = $api->tickets->update($data) //Update a ticket
+$api->tickets->delete($id) //Delete a ticket
 
-$ticket = $api->view(25); //View a single ticket
 ```
 
 Install with Composer
@@ -44,7 +47,7 @@ php composer.phar install
 Api Overview
 -------------------
 
-This is a work in progress and the following have been implemented:
+This is a work in progress. So far the following have been implemented:
 
 - [x] Tickets (100%)
     - Create

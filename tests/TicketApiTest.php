@@ -14,7 +14,9 @@ class TicketApiTest extends TestCase
 {
     public function setUp()
     {
-        $this->api = new TicketApi($this->apiKey, $this->domain);
+        parent::setUp();
+
+        $this->class = TicketApi::class;
     }
 
     public function methodsThatShouldExist()

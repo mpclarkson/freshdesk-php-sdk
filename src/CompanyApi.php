@@ -18,9 +18,23 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
-class CompanyApi extends Api
+class CompanyApi
 {
     const ENDPOINT = '/companies';
+
+    /**
+     * @var Api
+     */
+    private $api;
+
+    /**
+     * CompanyApi constructor.
+     * @param Api $api
+     */
+    public function __construct(Api $api)
+    {
+        $this->api = $api;
+    }
 
     /**
      *
@@ -35,7 +49,7 @@ class CompanyApi extends Api
      */
     public function create(array $data)
     {
-        return $this->request('POST', $this->endpoint(), $data);
+        return $this->api->request('POST', $this->endpoint(), $data);
     }
 
     /**
@@ -51,7 +65,7 @@ class CompanyApi extends Api
      */
     public function all(array $query = null)
     {
-        return $this->request('GET', $this->endpoint(), null, $query);
+        return $this->api->request('GET', $this->endpoint(), null, $query);
     }
 
     /**
@@ -73,7 +87,7 @@ class CompanyApi extends Api
      */
     public function view($id, array $query = null)
     {
-        return $this->request('GET', $this->endpoint($id), null, $query);
+        return $this->api->request('GET', $this->endpoint($id), null, $query);
     }
 
     /**
@@ -89,7 +103,7 @@ class CompanyApi extends Api
      */
     public function update($id, array $data = null)
     {
-        return $this->request('PUT', $this->endpoint($id), $data);
+        return $this->api->request('PUT', $this->endpoint($id), $data);
     }
 
     /**
@@ -104,7 +118,7 @@ class CompanyApi extends Api
      */
     public function delete($id)
     {
-        return $this->request('DELETE', $this->endpoint($id));
+        return $this->api->request('DELETE', $this->endpoint($id));
     }
 
     /**
@@ -120,13 +134,12 @@ class CompanyApi extends Api
      */
     public function fields(array $query = null)
     {
-        return $this->request('GET', 'company_fields', null, $query);
+        return $this->api->request('GET', 'company_fields', null, $query);
     }
-
 
     private function endpoint($id = null)
     {
-        return $this->createEndpoint(self::ENDPOINT, $id);
+        return $this->api->createEndpoint(self::ENDPOINT, $id);
     }
 
 }

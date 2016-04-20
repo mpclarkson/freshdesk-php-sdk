@@ -16,21 +16,20 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     abstract function methodsThatShouldExist();
 
     /**
-     * @var string
-     */
-    protected $apiKey = 'foo';
-
-    /**
-     * @var string
-     */
-    protected $domain = 'bar';
-
-    /**
      * @var Api
      */
     protected $api;
 
-    // Tests
+    /**
+     * The specific class being tested
+     * @var
+     */
+    protected $class;
+
+    public function setUp()
+    {
+        $this->api = new Api("foo", "bar");
+    }
 
     /**
      * @dataProvider methodsThatShouldExist
@@ -45,17 +44,17 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     protected function assertMethodExists($method)
     {
         $this->assertTrue(
-            method_exists($this->api, $method)
+            method_exists($this->class, $method)
         );
     }
 
     protected function invokeMethod($method, array $params)
     {
-        $reflection = new \ReflectionClass(get_class($this->api));
+        $reflection = new \ReflectionClass(get_class($this->class));
         $method = $reflection->getMethod($method);
         $method->setAccessible(true);
 
-        return $method->invokeArgs($this->api, $params);
+        return $method->invokeArgs($this->class, $params);
     }
 
     protected function assertEndpoint($expected, $id = null)
