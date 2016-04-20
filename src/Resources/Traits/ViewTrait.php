@@ -11,7 +11,7 @@ namespace Freshdesk\Resources\Traits;
 trait ViewTrait
 {
     /**
-     * @param null $end string
+     * @param integer $end string
      * @return string
      */
     abstract protected function endpoint($end = null);
