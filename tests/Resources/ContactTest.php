@@ -1,22 +1,24 @@
 <?php
-namespace Freshdesk\tests;
+namespace Freshdesk\tests\Resources;
 
-use Freshdesk\TicketApi;
+use Freshdesk\tests\TestCase;
+use Freshdesk\Resources\Contact;
 
 /**
- * Ticket Api tests
+ * Contacts Api tests
  *
  * @package Freshdesk
  * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
-class TicketApiTest extends TestCase
+class ContactApiTest extends TestCase
 {
+
     public function setUp()
     {
         parent::setUp();
 
-        $this->class = TicketApi::class;
+        $this->class = Contact::class;
     }
 
     public function methodsThatShouldExist()
@@ -28,11 +30,7 @@ class TicketApiTest extends TestCase
             ['update'],
             ['delete'],
             ['fields'],
-            ['restore'],
-            ['fields'],
-            ['conversations'],
-            ['timeEntries'],
+            ['makeAgent'],
         ];
     }
-
 }

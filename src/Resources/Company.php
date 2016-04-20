@@ -6,8 +6,9 @@
  * Time: 2:32 PM
  */
 
-namespace Freshdesk;
+namespace Freshdesk\Resources;
 
+use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
@@ -23,7 +24,7 @@ use Freshdesk\Exceptions\ValidationException;
  * @internal
  * @package Freshdesk
  */
-class CompanyApi
+class Company
 {
     const ENDPOINT = '/companies';
 

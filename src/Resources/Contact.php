@@ -6,8 +6,9 @@
  * Time: 2:32 PM
  */
 
-namespace Freshdesk;
+namespace Freshdesk\Resources;
 
+use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
@@ -19,13 +20,13 @@ use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
 /**
- * Class TicketApi
+ * Class ContactApi
  * @internal
  * @package Freshdesk
  */
-class TicketApi
+class Contact
 {
-    const ENDPOINT = '/tickets';
+    const ENDPOINT = '/contacts';
 
     /**
      * @var Api
@@ -43,7 +44,7 @@ class TicketApi
 
     /**
      *
-     * Create a ticket
+     * Create a contact
      *
      * @param array|null $data
      * @return mixed|null
@@ -59,7 +60,7 @@ class TicketApi
 
     /**
      *
-     * Get a list of tickets
+     * Get a list of contacts
      *
      * @param array|null $query
      * @return mixed|null
@@ -75,7 +76,7 @@ class TicketApi
 
     /**
      *
-     * Get a ticket by id
+     * Get a contact by id
      *
      * @param int $id
      * @param array|null $query
@@ -96,7 +97,7 @@ class TicketApi
     }
 
     /**
-     * Update a ticket
+     * Update a contact
      *
      * @param $id
      * @param array|null $data
@@ -112,7 +113,7 @@ class TicketApi
     }
 
     /**
-     * Delete a ticket
+     * Delete a contact
      *
      * @param $id
      * @return mixed|null
@@ -127,24 +128,7 @@ class TicketApi
     }
 
     /**
-     * Restore a ticket
-     *
-     * @param $id
-     * @return mixed|null
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws RateLimitExceededException
-     * @throws UnsupportedContentTypeException
-     */
-    public function restore($id)
-    {
-        $end = $id . '/restore';
-
-        $this->api->request('PUT', $this->endpoint($end));
-    }
-
-    /**
-     * List ticket fields
+     * List contact fields
      *
      * @param array|null $query
      * @return mixed|null
@@ -156,11 +140,11 @@ class TicketApi
      */
     public function fields(array $query = null)
     {
-        $this->api->request('GET', 'ticket_fields', null, $query);
+        $this->api->request('GET', 'contact_fields', null, $query);
     }
 
     /**
-     * List conversations associated with a ticket
+     * Convert a contact into an agent
      *
      * @param array|null $query
      * @return mixed|null
@@ -170,27 +154,9 @@ class TicketApi
      * @throws Exceptions\AuthenticationException
      * @throws NotFoundException
      */
-    public function conversations($id, array $query = null)
+    public function makeAgent($id, array $query = null)
     {
-        $end = $id . '/conversations';
-
-        $this->api->request('GET', $this->endpoint($end), null, $query);
-    }
-
-    /**
-     * List time entries associated with a ticket
-     *
-     * @param array|null $query
-     * @return mixed|null
-     * @throws AccessDeniedException
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
-     * @throws NotFoundException
-     */
-    public function timeEntries($id, array $query = null)
-    {
-        $end = $id . '/time_entries';
+        $end = $id . '/make_agent';
 
         $this->api->request('GET', $this->endpoint($end), null, $query);
     }

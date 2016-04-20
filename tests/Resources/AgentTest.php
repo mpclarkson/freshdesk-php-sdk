@@ -1,35 +1,30 @@
 <?php
-namespace Freshdesk\tests;
+namespace Freshdesk\tests\Resources;
 
-use Freshdesk\ContactApi;
+use Freshdesk\tests\TestCase;
+use Freshdesk\Resources\Agent;
 
 /**
- * Contacts Api tests
+ * Agent resource tests
  *
  * @package Freshdesk
  * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
-class ContactApiTest extends TestCase
+class AgentTest extends TestCase
 {
-
     public function setUp()
     {
         parent::setUp();
-
-        $this->class = ContactApi::class;
+        $this->class = Agent::class;
     }
 
     public function methodsThatShouldExist()
     {
         return [
-            ['create'],
             ['all'],
             ['view'],
-            ['update'],
-            ['delete'],
-            ['fields'],
-            ['makeAgent'],
+            ['current'],
         ];
     }
 }

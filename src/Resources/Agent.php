@@ -6,8 +6,9 @@
  * Time: 2:32 PM
  */
 
-namespace Freshdesk;
+namespace Freshdesk\Resources;
 
+use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
@@ -19,13 +20,13 @@ use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
 /**
- * Class ContactApi
- * @internal
- * @package Freshdesk
+ * Agent resources
+ *
+ * @package Freshdesk\Resources
  */
-class ContactApi
+class Agent
 {
-    const ENDPOINT = '/contacts';
+    const ENDPOINT = '/agents';
 
     /**
      * @var Api
@@ -43,23 +44,7 @@ class ContactApi
 
     /**
      *
-     * Create a contact
-     *
-     * @param array|null $data
-     * @return mixed|null
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws RateLimitExceededException
-     * @throws UnsupportedContentTypeException
-     */
-    public function create(array $data)
-    {
-        $this->api->request('POST', $this->endpoint(), $data);
-    }
-
-    /**
-     *
-     * Get a list of contacts
+     * Get a list of all agents
      *
      * @param array|null $query
      * @return mixed|null
@@ -75,7 +60,7 @@ class ContactApi
 
     /**
      *
-     * Get a contact by id
+     * Get an agent by id
      *
      * @param int $id
      * @param array|null $query
@@ -96,68 +81,24 @@ class ContactApi
     }
 
     /**
-     * Update a contact
      *
-     * @param $id
-     * @param array|null $data
-     * @return mixed|null
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws RateLimitExceededException
-     * @throws UnsupportedContentTypeException
-     */
-    public function update($id, array $data = null)
-    {
-        $this->api->request('PUT', $this->endpoint($id), $data);
-    }
-
-    /**
-     * Delete a contact
-     *
-     * @param $id
-     * @return mixed|null
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws RateLimitExceededException
-     * @throws UnsupportedContentTypeException
-     */
-    public function delete($id)
-    {
-        $this->api->request('DELETE', $this->endpoint($id));
-    }
-
-    /**
-     * List contact fields
+     * Get the currently authenticated agent
      *
      * @param array|null $query
-     * @return mixed|null
+     * @return array|null
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
+     * @throws MethodNotAllowedException
      * @throws NotFoundException
+     * @throws RateLimitExceededException
+     * @throws UnsupportedAcceptHeaderException
+     * @throws UnsupportedContentTypeException
+     * @throws ValidationException
      */
-    public function fields(array $query = null)
+    public function current(array $query = null)
     {
-        $this->api->request('GET', 'contact_fields', null, $query);
-    }
-
-    /**
-     * Convert a contact into an agent
-     *
-     * @param array|null $query
-     * @return mixed|null
-     * @throws AccessDeniedException
-     * @throws ApiException
-     * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
-     * @throws NotFoundException
-     */
-    public function makeAgent($id, array $query = null)
-    {
-        $end = $id . '/make_agent';
-
-        $this->api->request('GET', $this->endpoint($end), null, $query);
+        $this->api->request('GET', $this->endpoint('me'), null, $query);
     }
 
     private function endpoint($id = null)

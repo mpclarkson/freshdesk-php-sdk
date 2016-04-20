@@ -6,8 +6,9 @@
  * Time: 2:32 PM
  */
 
-namespace Freshdesk;
+namespace Freshdesk\Resources;
 
+use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
@@ -19,13 +20,13 @@ use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
 /**
- * Class GroupApi
+ * Class TicketApi
  * @internal
  * @package Freshdesk
  */
-class GroupApi
+class Ticket
 {
-    const ENDPOINT = '/groups';
+    const ENDPOINT = '/tickets';
 
     /**
      * @var Api
@@ -43,7 +44,7 @@ class GroupApi
 
     /**
      *
-     * Create a group
+     * Create a ticket
      *
      * @param array|null $data
      * @return mixed|null
@@ -59,7 +60,7 @@ class GroupApi
 
     /**
      *
-     * Get a list of all groups
+     * Get a list of tickets
      *
      * @param array|null $query
      * @return mixed|null
@@ -75,7 +76,7 @@ class GroupApi
 
     /**
      *
-     * Get a group by id
+     * Get a ticket by id
      *
      * @param int $id
      * @param array|null $query
@@ -96,7 +97,7 @@ class GroupApi
     }
 
     /**
-     * Update a group
+     * Update a ticket
      *
      * @param $id
      * @param array|null $data
@@ -112,7 +113,7 @@ class GroupApi
     }
 
     /**
-     * Delete a group
+     * Delete a ticket
      *
      * @param $id
      * @return mixed|null
@@ -124,6 +125,75 @@ class GroupApi
     public function delete($id)
     {
         $this->api->request('DELETE', $this->endpoint($id));
+    }
+
+    /**
+     * Restore a ticket
+     *
+     * @param $id
+     * @return mixed|null
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws RateLimitExceededException
+     * @throws UnsupportedContentTypeException
+     */
+    public function restore($id)
+    {
+        $end = $id . '/restore';
+
+        $this->api->request('PUT', $this->endpoint($end));
+    }
+
+    /**
+     * List ticket fields
+     *
+     * @param array|null $query
+     * @return mixed|null
+     * @throws AccessDeniedException
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws Exceptions\AuthenticationException
+     * @throws NotFoundException
+     */
+    public function fields(array $query = null)
+    {
+        $this->api->request('GET', 'ticket_fields', null, $query);
+    }
+
+    /**
+     * List conversations associated with a ticket
+     *
+     * @param array|null $query
+     * @return mixed|null
+     * @throws AccessDeniedException
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws Exceptions\AuthenticationException
+     * @throws NotFoundException
+     */
+    public function conversations($id, array $query = null)
+    {
+        $end = $id . '/conversations';
+
+        $this->api->request('GET', $this->endpoint($end), null, $query);
+    }
+
+    /**
+     * List time entries associated with a ticket
+     *
+     * @param array|null $query
+     * @return mixed|null
+     * @throws AccessDeniedException
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws Exceptions\AuthenticationException
+     * @throws NotFoundException
+     */
+    public function timeEntries($id, array $query = null)
+    {
+        $end = $id . '/time_entries';
+
+        $this->api->request('GET', $this->endpoint($end), null, $query);
     }
 
     private function endpoint($id = null)

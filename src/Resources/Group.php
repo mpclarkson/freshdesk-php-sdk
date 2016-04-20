@@ -6,8 +6,9 @@
  * Time: 2:32 PM
  */
 
-namespace Freshdesk;
+namespace Freshdesk\Resources;
 
+use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
@@ -18,9 +19,14 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
-class AgentApi
+/**
+ * Class GroupApi
+ * @internal
+ * @package Freshdesk
+ */
+class Group
 {
-    const ENDPOINT = '/agents';
+    const ENDPOINT = '/groups';
 
     /**
      * @var Api
@@ -38,7 +44,23 @@ class AgentApi
 
     /**
      *
-     * Get a list of all agents
+     * Create a group
+     *
+     * @param array|null $data
+     * @return mixed|null
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws RateLimitExceededException
+     * @throws UnsupportedContentTypeException
+     */
+    public function create(array $data)
+    {
+        $this->api->request('POST', $this->endpoint(), $data);
+    }
+
+    /**
+     *
+     * Get a list of all groups
      *
      * @param array|null $query
      * @return mixed|null
@@ -54,7 +76,7 @@ class AgentApi
 
     /**
      *
-     * Get an agent by id
+     * Get a group by id
      *
      * @param int $id
      * @param array|null $query
@@ -75,24 +97,34 @@ class AgentApi
     }
 
     /**
+     * Update a group
      *
-     * Get the currently authenticated agent
-     *
-     * @param array|null $query
-     * @return array|null
-     * @throws AccessDeniedException
+     * @param $id
+     * @param array|null $data
+     * @return mixed|null
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws MethodNotAllowedException
-     * @throws NotFoundException
      * @throws RateLimitExceededException
-     * @throws UnsupportedAcceptHeaderException
      * @throws UnsupportedContentTypeException
-     * @throws ValidationException
      */
-    public function current(array $query = null)
+    public function update($id, array $data = null)
     {
-        $this->api->request('GET', $this->endpoint('me'), null, $query);
+        $this->api->request('PUT', $this->endpoint($id), $data);
+    }
+
+    /**
+     * Delete a group
+     *
+     * @param $id
+     * @return mixed|null
+     * @throws ApiException
+     * @throws ConflictingStateException
+     * @throws RateLimitExceededException
+     * @throws UnsupportedContentTypeException
+     */
+    public function delete($id)
+    {
+        $this->api->request('DELETE', $this->endpoint($id));
     }
 
     private function endpoint($id = null)

@@ -12,6 +12,11 @@ use Freshdesk\Exceptions\RateLimitExceededException;
 use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
+use Freshdesk\Resources\Agent;
+use Freshdesk\Resources\Company;
+use Freshdesk\Resources\Contact;
+use Freshdesk\Resources\Group;
+use Freshdesk\Resources\Ticket;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
@@ -25,37 +30,37 @@ use GuzzleHttp\Exception\RequestException;
 class Api
 {
     /**
-     * Access the Agents component of the api
+     * Access Agent resources
      *
-     * @var AgentApi
+     * @var Agent
      */
     public $agents;
 
     /**
-     * Access the Companies component of the api
+     * Access Company resources
      *
-     * @var CompanyApi
+     * @var Company
      */
     public $companies;
 
     /**
-     * Access the Contacts component of the api
+     * Access Contact resources
      *
-     * @var ContactApi
+     * @var Contact
      */
     public $contacts;
 
     /**
-     * Access the Groups component of the api
+     * Access the Group resources
      *
-     * @var GroupApi
+     * @var Group
      */
     public $groups;
 
     /**
-     * Access the Tickets component of the api
+     * Access the Ticket resources
      *
-     * @var TicketApi
+     * @var Ticket
      */
     public $tickets;
 
@@ -96,11 +101,11 @@ class Api
             ]
         );
 
-        $this->agents = new AgentApi($this);
-        $this->companies = new CompanyApi($this);
-        $this->contacts = new ContactApi($this);
-        $this->groups = new GroupApi($this);
-        $this->tickets = new TicketApi($this);
+        $this->agents = new Agent($this);
+        $this->companies = new Company($this);
+        $this->contacts = new Contact($this);
+        $this->groups = new Group($this);
+        $this->tickets = new Ticket($this);
     }
 
     /**

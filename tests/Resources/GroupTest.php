@@ -1,23 +1,24 @@
 <?php
-namespace Freshdesk\tests;
-use Freshdesk\CompanyApi;
+namespace Freshdesk\tests\Resources;
 
+use Freshdesk\tests\TestCase;
+use Freshdesk\Resources\Group;
 
 /**
- * Company Api tests
+ * Agent Api tests
  *
  * @package Freshdesk
  * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
-class CompanyApiTest extends TestCase
+class GroupApiTest extends TestCase
 {
     public function setUp()
     {
         parent::setUp();
 
-        $this->class = CompanyApi::class;
-    } 
+        $this->class = Group::class;
+    }
 
     public function methodsThatShouldExist()
     {
@@ -27,7 +28,6 @@ class CompanyApiTest extends TestCase
             ['view'],
             ['update'],
             ['delete'],
-            ['fields'],
         ];
     }
 }
