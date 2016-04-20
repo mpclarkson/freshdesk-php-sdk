@@ -24,23 +24,15 @@ use Freshdesk\Exceptions\ValidationException;
  *
  * @package Freshdesk\Resources
  */
-class Agent
+class Agent extends AbstractResource
 {
-    const ENDPOINT = '/agents';
 
     /**
-     * @var Api
+     * The resource endpoint
+     *
+     * @var string
      */
-    private $api;
-
-    /**
-     * CompanyApi constructor.
-     * @param Api $api
-     */
-    public function __construct(Api $api)
-    {
-        $this->api = $api;
-    }
+    protected $endpoint = '/agents';
 
     /**
      *
@@ -99,11 +91,6 @@ class Agent
     public function current(array $query = null)
     {
         $this->api->request('GET', $this->endpoint('me'), null, $query);
-    }
-
-    private function endpoint($id = null)
-    {
-        return $this->api->createEndpoint(self::ENDPOINT, $id);
     }
 
 }

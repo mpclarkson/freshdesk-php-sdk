@@ -11,6 +11,7 @@ namespace Freshdesk\Resources;
 use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
+use Freshdesk\Exceptions\AuthenticationException;
 use Freshdesk\Exceptions\ConflictingStateException;
 use Freshdesk\Exceptions\MethodNotAllowedException;
 use Freshdesk\Exceptions\NotFoundException;
@@ -24,24 +25,16 @@ use Freshdesk\Exceptions\ValidationException;
  * @internal
  * @package Freshdesk
  */
-class Ticket
+class Ticket extends AbstractResource
 {
-    const ENDPOINT = '/tickets';
 
     /**
-     * @var Api
+     * The resource endpoint
+     *
+     * @var string
      */
-    private $api;
-
-    /**
-     * CompanyApi constructor.
-     * @param Api $api
-     */
-    public function __construct(Api $api)
-    {
-        $this->api = $api;
-    }
-
+    protected $endpoint = '/tickets';
+    
     /**
      *
      * Create a ticket
@@ -168,7 +161,7 @@ class Ticket
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
+     * @throws AuthenticationException
      * @throws NotFoundException
      */
     public function conversations($id, array $query = null)
@@ -186,7 +179,7 @@ class Ticket
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
+     * @throws AuthenticationException
      * @throws NotFoundException
      */
     public function timeEntries($id, array $query = null)
@@ -194,11 +187,6 @@ class Ticket
         $end = $id . '/time_entries';
 
         $this->api->request('GET', $this->endpoint($end), null, $query);
-    }
-
-    private function endpoint($id = null)
-    {
-        return $this->api->createEndpoint(self::ENDPOINT, $id);
     }
 
 }

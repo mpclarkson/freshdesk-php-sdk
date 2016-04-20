@@ -24,23 +24,15 @@ use Freshdesk\Exceptions\ValidationException;
  * @internal
  * @package Freshdesk
  */
-class Group
+class Group extends AbstractResource
 {
-    const ENDPOINT = '/groups';
 
     /**
-     * @var Api
+     * The api endpoint
+     *
+     * @var string
      */
-    private $api;
-
-    /**
-     * CompanyApi constructor.
-     * @param Api $api
-     */
-    public function __construct(Api $api)
-    {
-        $this->api = $api;
-    }
+    protected $endpoint = '/groups';
 
     /**
      *
@@ -126,10 +118,4 @@ class Group
     {
         $this->api->request('DELETE', $this->endpoint($id));
     }
-
-    private function endpoint($id = null)
-    {
-        return $this->api->createEndpoint(self::ENDPOINT, $id);
-    }
-
 }

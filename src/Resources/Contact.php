@@ -11,6 +11,7 @@ namespace Freshdesk\Resources;
 use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
+use Freshdesk\Exceptions\AuthenticationException;
 use Freshdesk\Exceptions\ConflictingStateException;
 use Freshdesk\Exceptions\MethodNotAllowedException;
 use Freshdesk\Exceptions\NotFoundException;
@@ -24,23 +25,14 @@ use Freshdesk\Exceptions\ValidationException;
  * @internal
  * @package Freshdesk
  */
-class Contact
+class Contact extends AbstractResource
 {
-    const ENDPOINT = '/contacts';
-
     /**
-     * @var Api
+     * The resource endpoint
+     *
+     * @var string
      */
-    private $api;
-
-    /**
-     * CompanyApi constructor.
-     * @param Api $api
-     */
-    public function __construct(Api $api)
-    {
-        $this->api = $api;
-    }
+    protected $endpoint = '/contacts';
 
     /**
      *
@@ -135,7 +127,7 @@ class Contact
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
+     * @throws AuthenticationException
      * @throws NotFoundException
      */
     public function fields(array $query = null)
@@ -151,7 +143,7 @@ class Contact
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
+     * @throws AuthenticationException
      * @throws NotFoundException
      */
     public function makeAgent($id, array $query = null)
@@ -160,10 +152,4 @@ class Contact
 
         $this->api->request('GET', $this->endpoint($end), null, $query);
     }
-
-    private function endpoint($id = null)
-    {
-        return $this->api->createEndpoint(self::ENDPOINT, $id);
-    }
-
 }

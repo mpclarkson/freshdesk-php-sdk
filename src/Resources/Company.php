@@ -24,23 +24,14 @@ use Freshdesk\Exceptions\ValidationException;
  * @internal
  * @package Freshdesk
  */
-class Company
+class Company extends AbstractResource
 {
-    const ENDPOINT = '/companies';
-
     /**
-     * @var Api
+     * The resource endpoint
+     *
+     * @var string
      */
-    private $api;
-
-    /**
-     * CompanyApi constructor.
-     * @param Api $api
-     */
-    public function __construct(Api $api)
-    {
-        $this->api = $api;
-    }
+    protected $endpoint = '/companies';
 
     /**
      *
@@ -135,17 +126,12 @@ class Company
      * @throws AccessDeniedException
      * @throws ApiException
      * @throws ConflictingStateException
-     * @throws Exceptions\AuthenticationException
      * @throws NotFoundException
+     * @throws \Freshdesk\Exceptions\AuthenticationException
      */
     public function fields(array $query = null)
     {
-        return $this->api->request('GET', 'company_fields', null, $query);
-    }
-
-    private function endpoint($id = null)
-    {
-        return $this->api->createEndpoint(self::ENDPOINT, $id);
+        return $this->api->request('GET', '/company_fields', null, $query);
     }
 
 }

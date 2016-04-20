@@ -181,16 +181,4 @@ class Api
                 return new ApiException($e);
         }
     }
-
-    /**
-     * Method for generating endpoints
-     *
-     * @internal
-     * @param null $id
-     * @return string
-     */
-    public function createEndpoint($endPoint, $id = null)
-    {
-        return $id == null ? $endPoint : $endPoint.'/'.$id;
-    }
 }

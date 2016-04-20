@@ -23,7 +23,6 @@ class ApiTest extends TestCase
         return [
             ['request'],
             ['handleException'],
-            ['createEndpoint'],
         ];
     }
 
