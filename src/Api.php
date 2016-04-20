@@ -153,8 +153,7 @@ class Api
 
     /**
      * @param RequestException $e
-     * @return AccessDeniedException|ApiException|AuthenticationException|ConflictingStateException|NotFoundException|
-     * RateLimitExceededException|UnsupportedContentTypeException|ValidationException
+     * @return AccessDeniedException|ApiException|AuthenticationException|ConflictingStateException|MethodNotAllowedException|NotFoundException|RateLimitExceededException|UnsupportedAcceptHeaderException|UnsupportedContentTypeException|ValidationException
      */
     private function handleException(RequestException $e)
     {

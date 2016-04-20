@@ -1,38 +1,27 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Matt
- * Date: 20/04/2016
- * Time: 2:32 PM
+ * User: Matthew
+ * Date: 21/04/2016
+ * Time: 9:10 AM
  */
 
-namespace Freshdesk\Resources;
+namespace Freshdesk\Resources\Traits;
 
-use Freshdesk\Resources\Traits\AllTrait;
-use Freshdesk\Resources\Traits\CreateTrait;
-use Freshdesk\Resources\Traits\ViewTrait;
 
-/**
- * Agent resources
- *
- * @package Freshdesk\Resources
- */
-class Agent extends AbstractResource
+trait ViewTrait
 {
-
-    use AllTrait, CreateTrait, ViewTrait;
-
     /**
-     * The resource endpoint
-     *
-     * @var string
+     * @param null $end string
+     * @return string
      */
-    protected $endpoint = '/agents';
+    abstract public function endpoint($end = null);
 
     /**
      *
-     * Get the currently authenticated agent
+     * Get a resource by $id. Accepts an optional array of query parameters.
      *
+     * @param int $id
      * @param array|null $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
@@ -46,9 +35,9 @@ class Agent extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function current(array $query = null)
+    public function view($id, array $query = null)
     {
-        return $this->api->request('GET', $this->endpoint('me'), null, $query);
+        $this->api->request('GET', $this->endpoint($id), null, $query);
     }
 
 }

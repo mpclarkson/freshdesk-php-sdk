@@ -1,39 +1,28 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Matt
- * Date: 20/04/2016
- * Time: 2:32 PM
+ * User: Matthew
+ * Date: 21/04/2016
+ * Time: 9:10 AM
  */
 
-namespace Freshdesk\Resources;
+namespace Freshdesk\Resources\Traits;
 
-use Freshdesk\Resources\Traits\AllTrait;
-use Freshdesk\Resources\Traits\CreateTrait;
-use Freshdesk\Resources\Traits\ViewTrait;
 
-/**
- * Agent resources
- *
- * @package Freshdesk\Resources
- */
-class Agent extends AbstractResource
+trait DeleteTrait
 {
 
-    use AllTrait, CreateTrait, ViewTrait;
-
     /**
-     * The resource endpoint
-     *
-     * @var string
+     * @param null $end string
+     * @return string
      */
-    protected $endpoint = '/agents';
+    abstract public function endpoint($end = null);
 
     /**
      *
-     * Get the currently authenticated agent
+     * Deletes a resource with the supplied data.
      *
-     * @param array|null $query
+     * @param $id
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -46,9 +35,9 @@ class Agent extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function current(array $query = null)
+    public function delete($id)
     {
-        return $this->api->request('GET', $this->endpoint('me'), null, $query);
+        $this->api->request('DELETE', $this->endpoint($id));
     }
 
 }
