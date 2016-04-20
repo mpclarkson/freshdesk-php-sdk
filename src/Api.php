@@ -136,16 +136,12 @@ class Api
             switch($method) {
                 case 'GET':
                     return $this->client->get($url, $options)->json();
-                    break;
                 case 'POST':
                     return $this->client->post($url, $options)->json();
-                    break;
                 case 'PUT':
                     return $this->client->put($url, $options)->json();
-                    break;
                 case 'DELETE':
                     return $this->client->delete($url, $options)->json();
-                    break;
                 default:
                     return null;
             }
@@ -165,31 +161,22 @@ class Api
         switch($e->getResponse()->getStatusCode()) {
             case 400:
                 return new ValidationException($e);
-                break;
             case 401:
                 return new AuthenticationException($e);
-                break;
             case 403:
                 return new AccessDeniedException($e);
-                break;
             case 404:
                 return new NotFoundException($e);
-                break;
             case 405:
                 return new MethodNotAllowedException($e);
-                break;
             case 406:
                 return new UnsupportedAcceptHeaderException($e);
-                break;
             case 409:
                 return new ConflictingStateException($e);
-                break;
             case 415:
                 return new UnsupportedContentTypeException($e);
-                break;
             case 429:
                 return new RateLimitExceededException($e);
-                break;
             default:
                 return new ApiException($e);
         }
