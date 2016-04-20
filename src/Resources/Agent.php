@@ -8,7 +8,6 @@
 
 namespace Freshdesk\Resources;
 
-use Freshdesk\Api;
 use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\ConflictingStateException;
