@@ -23,7 +23,7 @@ $api->tickets->delete($id); //Delete a ticket
 $existing = $api->tickets->view($id); //View a ticket
 
 //Responses are simple arrays, e.g.:
-$id = $existing['id];
+$id = $existing['id'];
 $first = $all[0];
 
 ```
