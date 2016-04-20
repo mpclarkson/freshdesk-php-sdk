@@ -5,7 +5,7 @@ This is a php wrapper for the [Freshdesk](https://www.freshdesk.com) API v2.
 
 If you have questions contact us or open an issue on GitHub. PRs are welcome.
 
-[![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php)
+[![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 
 Quickstart
 -------------------
