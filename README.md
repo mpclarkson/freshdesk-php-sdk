@@ -18,13 +18,13 @@ $api = new Api("your_freshdesk_api_key", "your_freshdesk_domain");
 $all = $api->tickets->all(); //List tickets (page 1)
 $some = $api->tickets->all(['page' => 2]); //List all tickets (page 2)
 $new = $api->tickets->create($data); //Create a new ticket
-$updated = $api->tickets->update($data) //Update a ticket
-$api->tickets->delete($id) //Delete a ticket
+$updated = $api->tickets->update($data); //Update a ticket
+$api->tickets->delete($id); //Delete a ticket
 $existing = $api->tickets->view($id); //View a ticket
 
 //Responses are simple arrays, e.g.:
-$id = $existing['id]
-$first = $all[0]
+$id = $existing['id];
+$first = $all[0];
 
 ```
 
