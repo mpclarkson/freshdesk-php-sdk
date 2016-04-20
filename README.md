@@ -1,11 +1,11 @@
 Freshdesk PHP SDK API v2 
 ===========================
 
+[![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
+
 This is a PHP SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
 If you have questions, please contact me or open issue on GitHub. PRs are welcome!
-
-[![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 
 Quickstart
 -------------------
@@ -93,7 +93,7 @@ This is a work in progress. So far the following have been implemented:
 Author
 ---------
 
-The library was written an maintained by [Matthew Clarkson](http://mpclarkson.github.io/) from [Hilenium](https://hilenium.com).
+The library was written and maintained by [Matthew Clarkson](http://mpclarkson.github.io/) from [Hilenium](https://hilenium.com).
 
 
 Resources
