@@ -27,12 +27,12 @@ Install with Composer
 -------------------
 To integrate this library into your application, use [Composer](https://getcomposer.org).
 
-Add `mpclarkson/freshdesk-php` to your **composer.json** file:
+Add `mpclarkson/freshdesk-php-sdk` to your **composer.json** file:
 
 ```json
 {
     "require": {
-        "mpclarkson/freshdesk-php": "dev-master"
+        "mpclarkson/freshdesk-php-sdk": "dev-master"
     }
 }
 
