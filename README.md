@@ -1,9 +1,9 @@
-Freshdesk PHP API v2 Library
-============================
+Freshdesk PHP SDK API v2 
+===========================
 
-This is a php wrapper for the [Freshdesk](https://www.freshdesk.com) API v2.
+This is a PHP SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
-If you have questions contact us or open an issue on GitHub. PRs are welcome.
+If you have questions, please contact me or open issue on GitHub. PRs are welcome!
 
 [![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 
@@ -16,7 +16,7 @@ use \Freshdesk\Api;
 $api = new Api("your_freshdesk_api_key", "your_freshdesk_domain");
 
 $all = $api->tickets->all(); //List all tickets
-$existing = $api->tickets->view($id); //View a ticket with
+$existing = $api->tickets->view($id); //View a ticket
 $new = $api->tickets->create($data); //Create a new ticket
 $updated = $api->tickets->update($data) //Update a ticket
 $api->tickets->delete($id) //Delete a ticket

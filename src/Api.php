@@ -25,31 +25,42 @@ use GuzzleHttp\Exception\RequestException;
 class Api
 {
     /**
+     * Access the Agents component of the api
+     *
      * @var AgentApi
      */
     public $agents;
 
     /**
+     * Access the Companies component of the api
+     *
      * @var CompanyApi
      */
     public $companies;
 
     /**
+     * Access the Contacts component of the api
+     *
      * @var ContactApi
      */
     public $contacts;
 
     /**
+     * Access the Groups component of the api
+     *
      * @var GroupApi
      */
     public $groups;
 
     /**
+     * Access the Tickets component of the api
+     *
      * @var TicketApi
      */
     public $tickets;
 
     /**
+     * @internal
      * @var Client
      */
     protected $client;
@@ -60,7 +71,7 @@ class Api
     private $baseUrl;
 
     /**
-     * Construct a new api instance
+     * Constructs a new api instance
      *
      * @param $apiKey
      * @param $domain
@@ -93,8 +104,9 @@ class Api
     }
 
     /**
-     * Private method for handling all requests
+     * Internal method for handling all requests
      *
+     * @internal
      * @param $method
      * @param $endpoint
      * @param array|null $data
@@ -181,6 +193,7 @@ class Api
     /**
      * Method for generating endpoints
      *
+     * @internal
      * @param null $id
      * @return string
      */
@@ -188,5 +201,4 @@ class Api
     {
         return $id == null ? $endPoint : $endPoint.'/'.$id;
     }
-
 }

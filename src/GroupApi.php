@@ -18,6 +18,11 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
+/**
+ * Class GroupApi
+ * @internal
+ * @package Freshdesk
+ */
 class GroupApi
 {
     const ENDPOINT = '/groups';

@@ -18,6 +18,11 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
+/**
+ * Class ContactApi
+ * @internal
+ * @package Freshdesk
+ */
 class ContactApi
 {
     const ENDPOINT = '/contacts';

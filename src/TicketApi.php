@@ -18,6 +18,11 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 
+/**
+ * Class TicketApi
+ * @internal
+ * @package Freshdesk
+ */
 class TicketApi
 {
     const ENDPOINT = '/tickets';
