@@ -39,7 +39,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         $this->assertMethodExists($method);
     }
 
-    //Helpers
+    //Custom Assertions
 
     protected function assertMethodExists($method)
     {
@@ -47,6 +47,15 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             method_exists($this->class, $method)
         );
     }
+
+    protected function assertEndpoint($expected, $id = null)
+    {
+        $actual = $this->invokeMethod('endpoint', [$id]);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    //Helpers
 
     protected function invokeMethod($method, array $params)
     {
@@ -57,11 +66,6 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         return $method->invokeArgs($this->class, $params);
     }
 
-    protected function assertEndpoint($expected, $id = null)
-    {
-        $actual = $this->invokeMethod('endpoint', [$id]);
 
-        $this->assertEquals($expected, $actual);
-    }
 
 }
