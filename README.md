@@ -49,7 +49,7 @@ php composer.phar install
 
 ## API Overview
 
-Full documentation is coming soon.
+Full documentation is available [here](docs/ApiIndex.md)
 
 ### Getting started
 

@@ -2,5 +2,5 @@
 .settings
 .DS_Store
 vendor
-docs
+docs/phpdoc-cache-*
 #composer.lock
