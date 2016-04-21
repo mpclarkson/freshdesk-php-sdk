@@ -28,7 +28,7 @@ class Comment extends AbstractResource
      *
      * @var string
      */
-    protected $endpoint ='/discussions/comments' ;
+    protected $endpoint = '/discussions/comments';
 
     /**
      * The forums resource endpoint
