@@ -24,8 +24,7 @@ class Forum extends AbstractResource
 {
 
     use AllTrait, ViewTrait, UpdateTrait, DeleteTrait, MonitorTrait;
-
-
+    
     /**
      * The forums resource endpoint
      *

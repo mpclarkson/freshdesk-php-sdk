@@ -8,6 +8,7 @@
 
 namespace Freshdesk\Resources;
 use Freshdesk\Resources\Traits\DeleteTrait;
+use Freshdesk\Resources\Traits\MonitorTrait;
 use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
@@ -20,7 +21,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 class Topic extends AbstractResource
 {
 
-    use ViewTrait, UpdateTrait, DeleteTrait;
+    use ViewTrait, UpdateTrait, DeleteTrait, MonitorTrait;
 
     /**
      * The topic resource endpoint
