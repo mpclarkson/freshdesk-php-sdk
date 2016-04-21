@@ -87,6 +87,9 @@ $ticket = $api->tickets->view($filters);
 //Time Entries
 $time = $api->timeEntries->all($ticket['id']);
 
+//Conversations
+$ticket = $api->conversations->note($ticketId, $data);
+
 //Categories
 $newCategory = $api->categories->create($data);
 
