@@ -185,8 +185,8 @@ class Api
      * Constructs a new api instance
      *
      * @api
-     * @param $apiKey
-     * @param $domain
+     * @param string $apiKey
+     * @param string $domain
      * @throws Exceptions\InvalidConfigurationException
      */
     public function __construct($apiKey, $domain)

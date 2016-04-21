@@ -27,7 +27,7 @@ class ApiException extends Exception
      * MethodNotAllowedException|NotFoundException|RateLimitExceededException|UnsupportedAcceptHeaderException|
      * UnsupportedContentTypeException|ValidationException
      */
-    static public function create(RequestException $e) {
+     public static function create(RequestException $e) {
         switch ($e->getResponse()->getStatusCode()) {
             case 400:
                 return new ValidationException($e);

@@ -112,7 +112,7 @@ $product = $api->products->view($productId);
 $hours = $api->businessHours->all();
 
 //SLA Policy
-$policies= $api->slaPolicies-all();
+$policies = $api->slaPolicies-all();
 
 ```
 
@@ -128,7 +128,6 @@ All `GET` requests accept an optional `array $query` parameter to filter
 results. For example:
 
 ```php
-
 //Page 2 with 50 results per page
 $page2 = $this->forums->all(['page' => 2, 'per_page' => 50]);
 
