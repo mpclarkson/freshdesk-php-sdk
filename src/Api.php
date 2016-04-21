@@ -13,13 +13,18 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 use Freshdesk\Resources\Agent;
+use Freshdesk\Resources\BusinessHour;
 use Freshdesk\Resources\Category;
 use Freshdesk\Resources\Comment;
 use Freshdesk\Resources\Company;
 use Freshdesk\Resources\Contact;
+use Freshdesk\Resources\EmailConfig;
 use Freshdesk\Resources\Forum;
 use Freshdesk\Resources\Group;
+use Freshdesk\Resources\Product;
+use Freshdesk\Resources\SLAPolicy;
 use Freshdesk\Resources\Ticket;
+use Freshdesk\Resources\TimeEntry;
 use Freshdesk\Resources\Topic;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -55,46 +60,83 @@ class Api
     public $contacts;
 
     /**
-     * Access the Group resources
+     * Access Group resources
      *
      * @var Group
      */
     public $groups;
 
     /**
-     * Access the Ticket resources
+     * Access Ticket resources
      *
      * @var Ticket
      */
     public $tickets;
 
     /**
-     * Access the Category resources
+     * Access TimeEntry resources
      *
-     * @var Ticket
+     * @var TimeEntry
+     */
+    public $timeEntries;
+
+    /**
+     * Access Category resources
+     *
+     * @var Category
      */
     public $categories;
 
     /**
-     * Access the Forum resources
+     * Access Forum resources
      *
-     * @var Ticket
+     * @var Forum
      */
     public $forums;
 
     /**
-     * Access the Topic resources
+     * Access Topic resources
      *
-     * @var Ticket
+     * @var Topic
      */
     public $topics;
 
     /**
-     * Access the Comment resources
+     * Access Comment resources
      *
-     * @var Ticket
+     * @var Comment
      */
     public $comments;
+
+    //Admin
+
+    /**
+     * Access Email Config resources
+     *
+     * @var EmailConfig
+     */
+    public $emailConfigs;
+
+    /**
+     * Access Product resources
+     *
+     * @var Product
+     */
+    public $products;
+
+    /**
+     * Access Business Hours resources
+     *
+     * @var BusinessHour
+     */
+    public $businessHours;
+
+    /**
+     * Access SLA Policy resources
+     *
+     * @var SLAPolicy
+     */
+    public $slaPolicies;
 
     //Internal
 
@@ -135,17 +177,27 @@ class Api
             ]
         );
 
+        //People
         $this->agents = new Agent($this);
         $this->companies = new Company($this);
         $this->contacts = new Contact($this);
         $this->groups = new Group($this);
+
+        //Tickets
         $this->tickets = new Ticket($this);
+        $this->timeEntries = new TimeEntry($this);
 
         //Discussions
         $this->categories = new Category($this);
         $this->forums = new Forum($this);
         $this->topics = new Topic($this);
         $this->comments = new Comment($this);
+        
+        //Admin
+        $this->products = new Product($this);
+        $this->emailConfigs = new EmailConfig($this);
+        $this->slaPolicies = new SLAPolicy($this);
+        $this->businessHours = new BusinessHour($this);
     }
 
     /**

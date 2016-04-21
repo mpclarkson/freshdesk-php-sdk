@@ -46,6 +46,10 @@ class ApiTest extends TestCase
             ['forums'],
             ['topics'],
             ['comments'],
+            ['emailConfigs'],
+            ['products'],
+            ['businessHours'],
+            ['slaPolicies'],
         ];
     }
 }

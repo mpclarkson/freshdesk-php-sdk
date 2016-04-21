@@ -1,5 +1,5 @@
-Freshdesk PHP SDK API v2 
-===========================
+# Freshdesk PHP SDK API v2 
+
 
 [![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/?branch=master)
@@ -8,8 +8,7 @@ This is a PHP SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
 If you have questions, please contact me or open issue on GitHub.
 
-Quick Start
------------
+## Quick Start
 ```php
 require __DIR__ . '/vendor/autoload.php';
 use \Freshdesk\Api;
@@ -29,8 +28,7 @@ $first = $all[0];
 
 ```
 
-Installation
-------------
+## Installation
 To integrate this library into your application, use [Composer](https://getcomposer.org).
 
 Add `mpclarkson/freshdesk-php-sdk` to your **composer.json** file:
@@ -50,62 +48,72 @@ Then run:
 php composer.phar install
 ```
 
-To Do
------
+## API Overview
+
+Full documentation is coming soon.
+
+### Getting started
+
+Creating a new API instance is very easy. All you need is your Freshdesk 
+API key and your Freshdesk domain.
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+use \Freshdesk\Api;
+
+$api = new Api("your_freshdesk_api_key", "your_freshdesk_domain");
+```
+
+### Resources
+
+The available methods for each resource are available via a public
+property on the api, for example:
+
+```php
+//Tickets
+$api->tickets->view($query)
+
+//Contacts
+$api->contacts->update($id, $data)
+```
+
+
+### Filtering
+
+All `GET` requests accept an optional `array $query` parameter to filter
+results. Form example:
+
+```php
+
+//Page 2 with 50 results per page
+$page2 = $this->forums->all(['page' => 2, 'per_page' => 50]);
+
+//Tickets for a specific customer
+$tickets = $this->tickets->view(['company' => $companyId]);
+
+```
+
+Please read the Freshdesk documentation for further information on
+filtering `GET` requests.
+
+
+## To Do
 
 This is a work in progress and PRs are welcome.
 
+So far all api calls are available except for the `Solutions` and `Surveys`, 
+which Freshdesk has not yet implemented.
 
-So far the following have been implemented:
+- [] Solutions
+- [] Surveys
+- [] More tests. You can never have enough!
 
-- [x] Tickets (100%)
-    - Create
-    - View
-    - List all
-    - Update
-    - Delete
-    - Restore
-    - List all ticket fields
-    - List all conversations
-    - List all time entries
+## Author
 
-- [x] Contacts (100%)
-    - Create
-    - View
-    - List all
-    - Update
-    - Delete
-    - Make agent
-    - List all contact fields
-
-- [x] Agents (100%)
-    - View
-    - List all
-    - Currently authenticated
-
-- [x] Groups (100%)
-    - Create
-    - View
-    - List all
-    - Update
-    - Delete
-
-- [x] Companies (100%)
-    - Create
-    - View
-    - List all
-    - Update
-    - Delete
-    - List all company fields
+The library was written and maintained by [Matthew Clarkson](http://mpclarkson.github.io/) 
+from [Hilenium](https://hilenium.com).
 
 
-Author
----------
-
-The library was written and maintained by [Matthew Clarkson](http://mpclarkson.github.io/) from [Hilenium](https://hilenium.com).
-
-
-Resources
----------
+## Reference
 
 * [Freshdesk API Documentation](https://developer.freshdesk.com/api/)
