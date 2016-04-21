@@ -8,7 +8,6 @@
 
 namespace Freshdesk\Resources;
 
-
 use Freshdesk\Api;
 
 abstract class AbstractResource
