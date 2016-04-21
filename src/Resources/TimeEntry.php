@@ -38,7 +38,7 @@ class TimeEntry extends AbstractResource
 
     /**
      * Creates the forums endpoint
-     * @param null $id
+     * @param string $id
      * @return string
      */
     protected function ticketsEndpoint($id = null)
