@@ -94,7 +94,7 @@ $newCategory = $api->categories->create($data);
 $forum = $api->forums->create($categoryId, $data);
 
 //Topics
-$topics - $api->topics->monitor($topicId, $userId);
+$topics = $api->topics->monitor($topicId, $userId);
 
 //Comments
 $comment = $api->comments->create($forumId);
