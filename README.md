@@ -1,6 +1,5 @@
 # Freshdesk PHP SDK API v2 
 
-
 [![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/?branch=master)
 
@@ -70,18 +69,55 @@ The available methods for each resource are available via a public
 property on the api, for example:
 
 ```php
-//Tickets
-$api->tickets->view($query)
 
 //Contacts
-$api->contacts->update($id, $data)
-```
+$contacts = $api->contacts->update($contactId, $data)
 
+//Agents
+$me = $api->agents->current()
+
+//Companies
+$company = $api->companies->create($data);
+
+//Groups
+$deleted = $api->groups->delete($groupId);
+
+//Tickets
+$ticket = $api->tickets->view($filters);
+
+//Time Entries
+$time = $api->timeEntries->all($ticket['id]);
+
+//Categories
+$newCategory = $api->categories->create($data);
+
+//Forums
+$forum = $api->forums->create($categoryId, $data);
+
+//Topics
+$topics - $api->topics->monitor($topicId, $userId);
+
+//Comments
+$comment = $api->comments->create($forumId);
+
+//Email Configs
+$configs = $api->emailConfigs->all();
+
+//Products
+$product = $api->products->view($productId);
+
+//Business Hours
+$hours = $api->businessHours->all();
+
+//SLA Policy
+$policies= $api->slaPolicies-all()
+
+```
 
 ### Filtering
 
 All `GET` requests accept an optional `array $query` parameter to filter
-results. Form example:
+results. For example:
 
 ```php
 
