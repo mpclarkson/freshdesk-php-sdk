@@ -5,7 +5,7 @@
 
 This is a PHP SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
-If you have questions, please contact me or open issue on GitHub.
+If you have questions, please contact me or open an issue on GitHub.
 
 ## Quick Start
 ```php
