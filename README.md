@@ -142,11 +142,12 @@ filtering `GET` requests.
 
 This is a work in progress and PRs are welcome.
 
-So far all api calls are available except for the `Solutions` and `Surveys`, 
+Nearly all api calls are available except for the `Solutions` and `Surveys`, 
 which Freshdesk has not yet implemented.
 
 - [] Solutions
 - [] Surveys
+- [] Uploading files is not yet supported
 - [] More tests. You can never have enough!
 
 ## Author
