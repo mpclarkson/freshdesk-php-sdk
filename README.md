@@ -137,7 +137,6 @@ $tickets = $this->tickets->view(['company' => $companyId]);
 Please read the Freshdesk documentation for further information on
 filtering `GET` requests.
 
-
 ## To Do
 
 This is a work in progress and PRs are welcome.
