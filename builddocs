@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ./vendor/bin/phpdoc  -d src -t docs/ --template="xml"
 ./vendor/bin/phpdocmd docs/structure.xml docs
-rm ./docs/php-doc-cache-*
+rm -rf ./docs/php-doc-cache-*
 git add .
 git commit -m "updated documentation"
