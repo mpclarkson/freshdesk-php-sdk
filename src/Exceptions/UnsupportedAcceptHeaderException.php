@@ -1,13 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matt
+ */
 namespace Freshdesk\Exceptions;
 
 
 /**
- * Thrown when a the Freshdesk API returns a 406 code. Only application/json and '*\/*' are supported.
- * When uploading files multipart/form-data is supported.
+ * Unsupported Accept Header Exception
  *
- * @package Freshdesk
- * @category Exceptions
+ * Thrown when the Freshdesk API returns a 406 code. Only application/json and '*\/*' are supported.
+ * When uploading files multipart/form-data is supported
+ *
+ * @package Exceptions
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class UnsupportedAcceptHeaderException extends ApiException

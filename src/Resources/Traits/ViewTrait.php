@@ -8,24 +8,36 @@
 
 namespace Freshdesk\Resources\Traits;
 
+/**
+ * View Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ *
+ */
 trait ViewTrait
 {
     /**
      * @param integer $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
     /**
+     * View a resource
      *
-     * Get a resource by $id. Accepts an optional array of query parameters.
+     * Use 'include' to embed additional details in the response. Each include will consume an additional credit.
+     * For example if you embed the requester and company information you will be charged a total of 3 API credits for the call.
+     * See Freshdesk's documentation for details.
      *
-     * @param int $id
+     * @api
+     * @param int $id The resource id
      * @param array|null $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException

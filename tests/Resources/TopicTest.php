@@ -8,8 +8,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Topic resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class TopicTest extends TestCase

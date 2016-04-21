@@ -7,8 +7,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Product resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class ProductTest extends TestCase

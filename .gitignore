@@ -2,5 +2,5 @@
 .settings
 .DS_Store
 vendor
-output
+docs
 #composer.lock

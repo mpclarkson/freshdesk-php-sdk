@@ -7,8 +7,6 @@ use Freshdesk\Resources\Ticket;
 /**
  * Ticket Api tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class TicketApiTest extends TestCase

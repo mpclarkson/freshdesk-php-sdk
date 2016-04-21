@@ -7,8 +7,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Form resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class ForumTest extends TestCase

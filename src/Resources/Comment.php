@@ -15,8 +15,9 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Comment resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * This provides access to the comment resources
+ *
+ * @package Api\Resources
  */
 class Comment extends AbstractResource
 {
@@ -27,6 +28,7 @@ class Comment extends AbstractResource
      * The topic resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/discussions/comments';
 
@@ -34,13 +36,16 @@ class Comment extends AbstractResource
      * The forums resource endpoint
      *
      * @var string
+     * @internal
      */
     private $topicsEndpoint = '/discussions/topics';
 
     /**
      * Creates the forums endpoint
+     *
      * @param string $id
      * @return string
+     * @internal
      */
     protected function topicsEndpoint($id = null)
     {
@@ -51,6 +56,7 @@ class Comment extends AbstractResource
      *
      * Create a topic for a forum
      *
+     * @api
      * @param int $id
      * @param array $data
      * @return array|null
@@ -74,6 +80,7 @@ class Comment extends AbstractResource
      *
      * List comments in a topic
      *
+     * @api
      * @param int $id
      * @param array $query
      * @return array|null

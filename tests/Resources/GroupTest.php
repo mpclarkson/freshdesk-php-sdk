@@ -7,8 +7,6 @@ use Freshdesk\Resources\Group;
 /**
  * Agent Api tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class GroupApiTest extends TestCase

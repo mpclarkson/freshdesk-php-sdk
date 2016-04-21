@@ -13,8 +13,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Email Config resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * @package Api\Resources
  */
 class Product extends AbstractResource
 {
@@ -25,6 +24,8 @@ class Product extends AbstractResource
      * The resource endpoint
      *
      * @var string
+     * @internal
+     *
      */
     protected $endpoint = '/products';
 }

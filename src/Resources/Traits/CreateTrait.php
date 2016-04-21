@@ -9,25 +9,34 @@
 namespace Freshdesk\Resources\Traits;
 
 
+/**
+ * Create Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ */
 trait CreateTrait
 {
 
     /**
      * @param null $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
     /**
+     * Create a resource
      *
-     * Creates a resource with the supplied data.
+     * Create a resource with the supplied data
      *
-     * @param array $data
+     * @api
+     * @param array $data The data
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException

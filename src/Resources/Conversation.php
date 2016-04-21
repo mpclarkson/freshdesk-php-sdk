@@ -7,54 +7,51 @@
  */
 
 namespace Freshdesk\Resources;
+
 use Freshdesk\Resources\Traits\DeleteTrait;
-use Freshdesk\Resources\Traits\MonitorTrait;
 use Freshdesk\Resources\Traits\UpdateTrait;
-use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
+ * Conversation resource
  *
- * Topic Resource
- *
- * Provides access to topic resources
+ * This provides access to the agent resources
  *
  * @package Api\Resources
  */
-class Topic extends AbstractResource
+class Conversation extends AbstractResource
 {
 
-    use ViewTrait, UpdateTrait, DeleteTrait, MonitorTrait;
+    use UpdateTrait, DeleteTrait;
 
     /**
-     * The topic resource endpoint
+     * The resource endpoint
+     * @internal
+     * @var string
+     */
+    protected $endpoint = '/conversations';
+
+    /**
+     * The ticket resource endpoint
      *
      * @var string
      * @internal
      */
-    protected $endpoint = '/discussions/topics';
+    private $ticketsEndpoint = '/tickets';
 
     /**
-     * The forums resource endpoint
-     *
-     * @var string
-     * @internal
-     */
-    private $forumsEndpoint = '/discussions/forums';
-
-    /**
-     * Creates the forums endpoint
+     * Creates the ticket endpoint
      * @param string $id
      * @return string
      * @internal
      */
-    protected function forumsEndpoint($id = null)
+    protected function ticketsEndpoint($id = null)
     {
-        return $id === null ? $this->forumsEndpoint : $this->forumsEndpoint . '/' . $id;
+        return $id === null ? $this->ticketsEndpoint : $this->ticketsEndpoint . '/' . $id;
     }
 
     /**
      *
-     * Create a topic for a forum
+     * Reply to a ticket
      *
      * @api
      * @param int $id
@@ -71,18 +68,18 @@ class Topic extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function create($id, array $data)
+    public function reply($id, array $data)
     {
-        return $this->api()->request('POST', $this->forumsEndpoint($id . '/topics'), $data);
+        return $this->api()->request('POST', $this->ticketsEndpoint($id . '/reply'), $data);
     }
 
     /**
      *
-     * List topics in a forum
+     * Create a note for a ticket
      *
      * @api
      * @param int $id
-     * @param array|null $query
+     * @param array $data
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -95,9 +92,9 @@ class Topic extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function all($id, array $query = null)
+    public function note($id, array $data)
     {
-        return $this->api()->request('GET', $this->forumsEndpoint($id . '/topics'), null, $query);
+        return $this->api()->request('POST', $this->ticketsEndpoint($id . '/note'), $data);
     }
 
 }

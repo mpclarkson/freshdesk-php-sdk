@@ -8,26 +8,34 @@
 
 namespace Freshdesk\Resources\Traits;
 
-
+/**
+ * Delete Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ */
 trait DeleteTrait
 {
 
     /**
      * @param null $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
     /**
+     * Delete a resource
      *
-     * Deletes a resource with the supplied data.
+     * Delete a resource by $id
      *
-     * @param $id
+     * @api
+     * @param in $id The resource id
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException

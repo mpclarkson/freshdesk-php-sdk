@@ -16,8 +16,9 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Forum category resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * This provides access to the forum category resources
+ *
+ * @package Api\Resources
  */
 class Category extends AbstractResource
 {
@@ -27,7 +28,9 @@ class Category extends AbstractResource
     /**
      * The resource endpoint
      *
+     * @internal
      * @var string
+     *
      */
     protected $endpoint = '/discussions/categories';
 

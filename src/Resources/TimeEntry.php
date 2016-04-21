@@ -12,10 +12,12 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * TimeEntry resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * Time Entry resource
+ *
+ * Provide access to time entry resources
+ *
+ * @package Api\Resources
  */
 class TimeEntry extends AbstractResource
 {
@@ -26,6 +28,7 @@ class TimeEntry extends AbstractResource
      * The time entries resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/time_entries';
 
@@ -33,13 +36,16 @@ class TimeEntry extends AbstractResource
      * The tickets resource endpoint
      *
      * @var string
+     * @internal
      */
     private $ticketsEndpoint = '/tickets';
 
     /**
      * Creates the forums endpoint
+     *
      * @param string $id
      * @return string
+     * @internal
      */
     protected function ticketsEndpoint($id = null)
     {
@@ -50,6 +56,7 @@ class TimeEntry extends AbstractResource
      *
      * Create a time entry for a ticket
      *
+     * @api
      * @param int $id
      * @param array $data
      * @return array|null
@@ -73,6 +80,7 @@ class TimeEntry extends AbstractResource
      *
      * List time entries for a ticket
      *
+     * @api
      * @param int $id
      * @param array|null $query
      * @return array|null
@@ -96,6 +104,7 @@ class TimeEntry extends AbstractResource
      *
      * Start / stop the timer
      *
+     * @api
      * @param int $id
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException

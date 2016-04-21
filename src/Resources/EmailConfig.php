@@ -12,9 +12,10 @@ use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
  * Email Config resource
+ * 
+ * Provides access to the Email Config resources
  *
- * @internal
- * @package Freshdesk\Resources
+ * @package Api\Resources
  */
 class EmailConfig extends AbstractResource
 {

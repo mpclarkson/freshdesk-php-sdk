@@ -1,31 +1,31 @@
 <?php
-namespace Freshdesk\tests\Resources;
 
-use Freshdesk\Resources\Comment;
+namespace Freshdesk\tests\Exception;
+
+use Freshdesk\Exceptions\ApiException;
 use Freshdesk\tests\TestCase;
 
 /**
- * Topic resource tests
+ * Api tests
  *
+ * @package Freshdesk
+ * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
-class CommentTest extends TestCase
+class ApiExceptionTest extends TestCase
 {
     public function setUp()
     {
         parent::setUp();
 
-        $this->class = Comment::class;
-    }
+        $this->class = ApiException::class;
+    } 
 
     public function methodsThatShouldExist()
     {
         return [
             ['create'],
-            ['all'],
-            ['view'],
-            ['update'],
-            ['delete'],
+            ['getRequestException'],
         ];
     }
 }

@@ -15,10 +15,12 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
+ *
  * Forum resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * Provides access to the forum resources
+ *
+ * @package Api\Resources
  */
 class Forum extends AbstractResource
 {
@@ -29,6 +31,7 @@ class Forum extends AbstractResource
      * The forums resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/discussions/forums';
 
@@ -36,6 +39,7 @@ class Forum extends AbstractResource
      * The resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $categoryEndpoint = '/discussions/categories';
 
@@ -44,6 +48,7 @@ class Forum extends AbstractResource
      *
      * @param integer $id
      * @return string
+     * @internal
      */
     private function categoryEndpoint($id = null)
     {
@@ -54,6 +59,7 @@ class Forum extends AbstractResource
      *
      * Create a forum for a category.
      *
+     * @api
      * @param int $id The category Id
      * @param array $data
      * @return array|null

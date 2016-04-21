@@ -8,26 +8,35 @@
 
 namespace Freshdesk\Resources\Traits;
 
+/**
+ * Monitor Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ */
 trait MonitorTrait
 {
 
     /**
      * @param string $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
-
     /**
+     * Monitor a resource
      *
-     * Monitor the resource for the given user
+     * Monitor a resource for the given user
      *
-     * @param int $userId
+     * @api
+     * @param $id The id of the resource
+     * @param $userId The id of the user
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -50,10 +59,13 @@ trait MonitorTrait
     }
 
     /**
+     * Unmonitor a resource
      *
      * Unmonitor a resource for the given user
      *
-     * @param int $userId
+     * @api
+     * @param $id The id of the resource
+     * @param $userId The id of the user
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -76,10 +88,13 @@ trait MonitorTrait
     }
 
     /**
+     * Monitor status
      *
-     * UnMonitor a forum for the given user
+     * Get the monitoring status of the topic for the user
      *
-     * @param int $userId
+     * @api
+     * @param $id The id of the resource
+     * @param $userId The id of the user
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException

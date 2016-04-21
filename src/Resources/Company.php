@@ -15,9 +15,11 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Class CompanyApi
- * @internal
- * @package Freshdesk
+ * Company resource
+ *
+ * This provides access to company resources
+ *
+ * @package Api\Resources
  */
 class Company extends AbstractResource
 {
@@ -27,6 +29,7 @@ class Company extends AbstractResource
     /**
      * The resource endpoint
      *
+     * @internal
      * @var string
      */
     protected $endpoint = '/companies';
@@ -34,6 +37,7 @@ class Company extends AbstractResource
     /**
      * List resource fields
      *
+     * @api
      * @param array|null $query
      * @return mixed|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException

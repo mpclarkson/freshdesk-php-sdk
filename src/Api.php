@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matt
+ * Date: 20/04/2016
+ * Time: 2:32 PM
+ */
 
 namespace Freshdesk;
 
@@ -18,6 +24,7 @@ use Freshdesk\Resources\Category;
 use Freshdesk\Resources\Comment;
 use Freshdesk\Resources\Company;
 use Freshdesk\Resources\Contact;
+use Freshdesk\Resources\Conversation;
 use Freshdesk\Resources\EmailConfig;
 use Freshdesk\Resources\Forum;
 use Freshdesk\Resources\Group;
@@ -30,80 +37,100 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Class for interacting with the the Freshdesk Api (v2).
+ * Class for interacting with the Freshdesk Api
  *
- * @package Freshdesk
- * @category Freshdesk
+ * This is the only class that should be instantiated directly. All API resources are available
+ * via the relevant public properties
+ *
+ * @package Api
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class Api
 {
     /**
-     * Access Agent resources
+     * Agent resources
      *
+     * @api
      * @var Agent
      */
     public $agents;
 
     /**
-     * Access Company resources
+     * Company resources
      *
+     * @api
      * @var Company
      */
     public $companies;
 
     /**
-     * Access Contact resources
+     * Contact resources
      *
+     * @api
      * @var Contact
      */
     public $contacts;
 
     /**
-     * Access Group resources
+     * Group resources
      *
+     * @api
      * @var Group
      */
     public $groups;
 
     /**
-     * Access Ticket resources
+     * Ticket resources
      *
+     * @api
      * @var Ticket
      */
     public $tickets;
 
     /**
-     * Access TimeEntry resources
+     * TimeEntry resources
      *
+     * @api
      * @var TimeEntry
      */
     public $timeEntries;
 
     /**
-     * Access Category resources
+     * Conversation resources
      *
+     * @api
+     * @var Conversation
+     */
+    public $conversations;
+
+    /**
+     * Category resources
+     *
+     * @api
      * @var Category
      */
     public $categories;
 
     /**
-     * Access Forum resources
+     * Forum resources
      *
+     * @api
      * @var Forum
      */
     public $forums;
 
     /**
-     * Access Topic resources
+     * Topic resources
      *
+     * @api
      * @var Topic
      */
     public $topics;
 
     /**
-     * Access Comment resources
+     * Comment resources
      *
+     * @api
      * @var Comment
      */
     public $comments;
@@ -111,8 +138,9 @@ class Api
     //Admin
 
     /**
-     * Access Email Config resources
+     * Email Config resources
      *
+     * @api
      * @var EmailConfig
      */
     public $emailConfigs;
@@ -120,25 +148,26 @@ class Api
     /**
      * Access Product resources
      *
+     * @api
      * @var Product
      */
     public $products;
 
     /**
-     * Access Business Hours resources
+     * Business Hours resources
      *
+     * @api
      * @var BusinessHour
      */
     public $businessHours;
 
     /**
-     * Access SLA Policy resources
+     * SLA Policy resources
      *
+     * @api
      * @var SLAPolicy
      */
     public $slaPolicies;
-
-    //Internal
 
     /**
      * @internal
@@ -147,26 +176,22 @@ class Api
     protected $client;
 
     /**
-     * @var
+     * @internal
+     * @var string
      */
     private $baseUrl;
 
     /**
      * Constructs a new api instance
      *
+     * @api
      * @param $apiKey
      * @param $domain
      * @throws Exceptions\InvalidConfigurationException
      */
     public function __construct($apiKey, $domain)
     {
-        if (!isset($apiKey)) {
-            throw new Exceptions\InvalidConfigurationException("API key is empty.");
-        }
-
-        if (!isset($domain)) {
-            throw new Exceptions\InvalidConfigurationException("Domain is empty.");
-        }
+        $this->validateConstructorArgs($apiKey, $domain);
 
         $this->baseUrl = sprintf('https://%s.freshdesk.com/api/v2', $domain);
 
@@ -177,31 +202,12 @@ class Api
             ]
         );
 
-        //People
-        $this->agents = new Agent($this);
-        $this->companies = new Company($this);
-        $this->contacts = new Contact($this);
-        $this->groups = new Group($this);
-
-        //Tickets
-        $this->tickets = new Ticket($this);
-        $this->timeEntries = new TimeEntry($this);
-
-        //Discussions
-        $this->categories = new Category($this);
-        $this->forums = new Forum($this);
-        $this->topics = new Topic($this);
-        $this->comments = new Comment($this);
-        
-        //Admin
-        $this->products = new Product($this);
-        $this->emailConfigs = new EmailConfig($this);
-        $this->slaPolicies = new SLAPolicy($this);
-        $this->businessHours = new BusinessHour($this);
+        $this->setupResources();
     }
 
+
     /**
-     * Internal method for handling all requests
+     * Internal method for handling requests
      *
      * @internal
      * @param $method
@@ -216,7 +222,6 @@ class Api
      */
     public function request($method, $endpoint, array $data = null, array $query = null)
     {
-
         $options = ['json' => $data];
 
         if (isset($query)) {
@@ -224,6 +229,25 @@ class Api
         }
 
         $url = $this->baseUrl . $endpoint;
+
+        return $this->performRequest($method, $url, $options);
+    }
+
+    /**
+     * Performs the request
+     *
+     * @internal
+     *
+     * @param $method
+     * @param $url
+     * @param $options
+     * @return mixed|null
+     * @throws AccessDeniedException
+     * @throws ApiException
+     * @throws AuthenticationException
+     * @throws ConflictingStateException
+     */
+    private function performRequest($method, $url, $options) {
 
         try {
             switch ($method) {
@@ -239,37 +263,56 @@ class Api
                     return null;
             }
         } catch (RequestException $e) {
-            throw $this->handleException($e);
+            throw ApiException::create($e);
+        }
+    }
+
+
+    /**
+     * @param $apiKey
+     * @param $domain
+     * @throws Exceptions\InvalidConfigurationException
+     * @internal
+     *
+     */
+    private function validateConstructorArgs($apiKey, $domain)
+    {
+        if (!isset($apiKey)) {
+            throw new Exceptions\InvalidConfigurationException("API key is empty.");
+        }
+
+        if (!isset($domain)) {
+            throw new Exceptions\InvalidConfigurationException("Domain is empty.");
         }
     }
 
     /**
-     * @param RequestException $e
-     * @return AccessDeniedException|ApiException|AuthenticationException|ConflictingStateException|MethodNotAllowedException|NotFoundException|RateLimitExceededException|UnsupportedAcceptHeaderException|UnsupportedContentTypeException|ValidationException
+     * @internal
      */
-    private function handleException(RequestException $e)
+    private function setupResources()
     {
-        switch ($e->getResponse()->getStatusCode()) {
-            case 400:
-                return new ValidationException($e);
-            case 401:
-                return new AuthenticationException($e);
-            case 403:
-                return new AccessDeniedException($e);
-            case 404:
-                return new NotFoundException($e);
-            case 405:
-                return new MethodNotAllowedException($e);
-            case 406:
-                return new UnsupportedAcceptHeaderException($e);
-            case 409:
-                return new ConflictingStateException($e);
-            case 415:
-                return new UnsupportedContentTypeException($e);
-            case 429:
-                return new RateLimitExceededException($e);
-            default:
-                return new ApiException($e);
-        }
+        //People
+        $this->agents = new Agent($this);
+        $this->companies = new Company($this);
+        $this->contacts = new Contact($this);
+        $this->groups = new Group($this);
+
+        //Tickets
+        $this->tickets = new Ticket($this);
+        $this->timeEntries = new TimeEntry($this);
+        $this->conversations = new Conversation($this);
+
+        //Discussions
+        $this->categories = new Category($this);
+        $this->forums = new Forum($this);
+        $this->topics = new Topic($this);
+        $this->comments = new Comment($this);
+
+        //Admin
+        $this->products = new Product($this);
+        $this->emailConfigs = new EmailConfig($this);
+        $this->slaPolicies = new SLAPolicy($this);
+        $this->businessHours = new BusinessHour($this);
     }
+
 }

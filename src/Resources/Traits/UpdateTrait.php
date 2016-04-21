@@ -9,26 +9,35 @@
 namespace Freshdesk\Resources\Traits;
 
 
+/**
+ * Update Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ */
 trait UpdateTrait
 {
 
     /**
      * @param integer $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
     /**
+     * Update a resource
      *
-     * Update a resource for the given $id with the supplied array.
+     * Updates the resources for the given $id with the supplied data/.
      *
-     * @param int $id
-     * @param array $data
+     * @api
+     * @param int $id The resource id
+     * @param array $data The data
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException

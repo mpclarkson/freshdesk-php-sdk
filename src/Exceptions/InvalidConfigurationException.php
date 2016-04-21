@@ -9,10 +9,11 @@
 namespace Freshdesk\Exceptions;
 
 /**
- * This indicates that the API was not initialized correctly.
+ * Invalid Configuration Exception
  *
- * @package Freshdesk
- * @category Exceptions
+ * This indicates that the API was not initialized correctly
+ *
+ * @package Exceptions
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class InvalidConfigurationException extends \Exception

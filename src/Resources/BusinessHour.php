@@ -11,10 +11,11 @@ use Freshdesk\Resources\Traits\AllTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Email Config resource
+ * Business Hour resource
+ * 
+ * This provides access to the business hour resources
  *
- * @internal
- * @package Freshdesk\Resources
+ * @package Api\Resources
  */
 class BusinessHour extends AbstractResource
 {
@@ -25,6 +26,7 @@ class BusinessHour extends AbstractResource
      * The resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/business_hours';
 }

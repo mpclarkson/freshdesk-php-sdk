@@ -22,7 +22,6 @@ class ApiTest extends TestCase
     {
         return [
             ['request'],
-            ['handleException'],
         ];
     }
 
@@ -42,6 +41,7 @@ class ApiTest extends TestCase
             ['contacts'],
             ['groups'],
             ['tickets'],
+            ['conversations'],
             ['categories'],
             ['forums'],
             ['topics'],

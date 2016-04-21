@@ -7,8 +7,6 @@ use Freshdesk\Resources\Agent;
 /**
  * Agent resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class AgentTest extends TestCase

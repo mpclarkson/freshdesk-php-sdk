@@ -15,9 +15,12 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Class GroupApi
- * @internal
- * @package Freshdesk
+ *
+ * Group resource
+ *
+ * Provides access to the group resources
+ *
+ * @package Api\Resources
  */
 class Group extends AbstractResource
 {
@@ -28,6 +31,7 @@ class Group extends AbstractResource
      * The api endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/groups';
 

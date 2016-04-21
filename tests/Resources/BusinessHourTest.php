@@ -7,8 +7,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Business Hour resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class BusinessHourTest extends TestCase

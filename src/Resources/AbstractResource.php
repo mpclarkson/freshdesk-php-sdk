@@ -10,22 +10,37 @@ namespace Freshdesk\Resources;
 
 use Freshdesk\Api;
 
+/**
+ * Abstract Resource
+ *
+ * Abstract class which all resources inherit from
+ *
+ * @internal
+ * @package Api\Resources
+ */
 abstract class AbstractResource
 {
 
     /**
      * @var Api
+     * @internal
      */
     private $api;
 
     /**
      * @var String
+     * @internal
      */
     protected $endpoint;
 
     /**
-     * CompanyApi constructor.
+     * Resource constructor
+     *
+     * Constructs a new resource
+     *
      * @param Api $api
+     * @internal
+     *
      */
     public function __construct(Api $api)
     {
@@ -34,8 +49,11 @@ abstract class AbstractResource
 
     /**
      * Creates the endpoint
-     * @param null $id
+     *
+     * @param null $id The endpoint terminator
      * @return string
+     * @internal
+     *
      */
     protected function endpoint($id = null)
     {
@@ -44,6 +62,7 @@ abstract class AbstractResource
 
     /**
      * @return Api
+     * @internal
      */
     protected function api()
     {

@@ -7,8 +7,6 @@ use Freshdesk\Resources\Contact;
 /**
  * Contacts Api tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class ContactApiTest extends TestCase

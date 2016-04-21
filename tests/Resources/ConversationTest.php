@@ -1,28 +1,30 @@
 <?php
 namespace Freshdesk\tests\Resources;
 
-use Freshdesk\Resources\SLAPolicy;
+use Freshdesk\Resources\Conversation;
 use Freshdesk\tests\TestCase;
 
 /**
- * SLA Policy resource tests
+ * Conversation resource tests
  *
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
-class SLAPolicytest extends TestCase
+class ConversationTest extends TestCase
 {
     public function setUp()
     {
         parent::setUp();
 
-        $this->class = SLAPolicy::class;
+        $this->class = Conversation::class;
     }
 
     public function methodsThatShouldExist()
     {
         return [
-            ['all'],
-            ['view'],
+            ['reply'],
+            ['note'],
+            ['update'],
+            ['delete'],
         ];
     }
 }

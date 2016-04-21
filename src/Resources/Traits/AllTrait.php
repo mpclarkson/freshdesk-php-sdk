@@ -8,23 +8,33 @@
 
 namespace Freshdesk\Resources\Traits;
 
+/**
+ * All Trait
+ *
+ * @package Freshdesk\Resources\Traits
+ */
 trait AllTrait
 {
 
     /**
      * @param null $end string
      * @return string
+     * @internal
      */
     abstract protected function endpoint($end = null);
 
     /**
      * @return \Freshdesk\Api
+     * @internal
      */
     abstract protected function api();
 
     /**
-     * Get a list of all agents for the given query parameters eg $query = ['page' => 2]
+     * Get a list of all agents.
      *
+     * Use filters ($query) to view only specific resources (those which match the criteria that you choose).
+     *
+     * @api
      * @param array|null $query
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException

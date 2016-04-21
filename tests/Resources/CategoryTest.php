@@ -7,8 +7,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Category resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class CategoryTest extends TestCase

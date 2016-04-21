@@ -15,9 +15,11 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Class TicketApi
- * @internal
- * @package Freshdesk
+ * Ticket resource
+ *
+ * Provides access to ticket resources
+ *
+ * @package Api\Resources
  */
 class Ticket extends AbstractResource
 {
@@ -33,7 +35,10 @@ class Ticket extends AbstractResource
 
     /**
      * Restore a ticket
+     * 
+     * Restores a previously deleted ticket
      *
+     * @api
      * @param $id
      * @return mixed|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
@@ -57,6 +62,9 @@ class Ticket extends AbstractResource
     /**
      * List ticket fields
      *
+     * The agent whose credentials (API key or username/password) are being used to make this API call should be
+     * authorised to view the ticket fields
+     *
      * @param array|null $query
      * @return mixed|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
@@ -78,6 +86,7 @@ class Ticket extends AbstractResource
     /**
      * List conversations associated with a ticket
      *
+     * @param int $id The ticket id
      * @param array|null $query
      * @return mixed|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
@@ -101,6 +110,7 @@ class Ticket extends AbstractResource
     /**
      * List time entries associated with a ticket
      *
+     * @param int $id The ticket id
      * @param array|null $query
      * @return mixed|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException

@@ -15,9 +15,12 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Class ContactApi
- * @internal
- * @package Freshdesk
+ *
+ * Contact resource
+ *
+ * Provides access to the contact resources
+ *
+ * @package Api\Resources
  */
 class Contact extends AbstractResource
 {
@@ -27,12 +30,17 @@ class Contact extends AbstractResource
      * The resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/contacts';
 
     /**
      * List contact fields
      *
+     * The agent whose credentials (API key or username/password) are being used to make this API call should be
+     * authorised to view the contact fields
+     *
+     * @api
      * @param array|null $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
@@ -54,6 +62,12 @@ class Contact extends AbstractResource
     /**
      * Convert a contact into an agent
      *
+     * Note:
+     * 1. The contact must have an email address in order to be converted into an agent.
+     * 2. If your account has already reached the maximum number of agents, the API request will fail with HTTP error code 403
+     * 3. The agent whose credentials (API key, username and password) were used to make this API call should be authorised to convert a contact into an agent
+     *
+     * @param int $id The agent id
      * @param array|null $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException

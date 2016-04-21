@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Freshdesk APIs PHP wrapper">
+        <testsuite name="Freshdesk PHP SDK API v2">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

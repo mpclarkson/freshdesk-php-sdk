@@ -7,8 +7,6 @@ use Freshdesk\tests\TestCase;
 /**
  * Email Config resource tests
  *
- * @package Freshdesk
- * @category Freshdesk
  * @author Matthew Clarkson <mpclarkson@gmail.com>
  */
 class EmailConfigTest extends TestCase

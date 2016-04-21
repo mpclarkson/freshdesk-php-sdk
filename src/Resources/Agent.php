@@ -13,10 +13,11 @@ use Freshdesk\Resources\Traits\CreateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Agent resources
+ * Agent resource
  *
- * @internal
- * @package Freshdesk\Resources
+ * This provides access to the agent resources
+ *
+ * @package Api\Resources
  */
 class Agent extends AbstractResource
 {
@@ -25,7 +26,7 @@ class Agent extends AbstractResource
 
     /**
      * The resource endpoint
-     *
+     * @internal
      * @var string
      */
     protected $endpoint = '/agents';
@@ -34,6 +35,7 @@ class Agent extends AbstractResource
      *
      * Get the currently authenticated agent
      *
+     * @api
      * @param array|null $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
