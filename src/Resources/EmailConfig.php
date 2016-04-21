@@ -26,6 +26,7 @@ class EmailConfig extends AbstractResource
      * The resource endpoint
      *
      * @var string
+     * @internal
      */
     protected $endpoint = '/email_configs';
 }
