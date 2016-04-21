@@ -39,7 +39,7 @@ class Comment extends AbstractResource
 
     /**
      * Creates the forums endpoint
-     * @param null $id
+     * @param string $id
      * @return string
      */
     protected function topicsEndpoint($id = null)
