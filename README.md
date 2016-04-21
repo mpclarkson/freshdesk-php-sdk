@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/?branch=master)
 
-This is a PHP SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
+This is a PHP 5.5+ SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
 If you have questions, please contact me or open an issue on GitHub.
 
@@ -139,9 +139,11 @@ $tickets = $this->tickets->view(['company_id' => $companyId]);
 Please read the Freshdesk documentation for further information on
 filtering `GET` requests.
 
-## To Do
+## Contributing
 
 This is a work in progress and PRs are welcome.
+
+When submitting PRs please ensure you include tests.
 
 Nearly all api calls are available except for the `Solutions` and `Surveys`, 
 which Freshdesk has not yet implemented.

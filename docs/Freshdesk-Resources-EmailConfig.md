@@ -14,19 +14,6 @@ Provides access to the Email Config resources
 
 
 
-Properties
-----------
-
-
-### $endpoint
-
-    protected string $endpoint = '/email_configs'
-
-The resource endpoint
-
-
-
-* Visibility: **protected**
 
 
 Methods

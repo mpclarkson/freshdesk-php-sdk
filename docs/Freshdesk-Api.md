@@ -189,7 +189,7 @@ Methods
 
 ### __construct
 
-    mixed Freshdesk\Api::__construct($apiKey, $domain)
+    mixed Freshdesk\Api::__construct(string $apiKey, string $domain)
 
 Constructs a new api instance
 
@@ -199,7 +199,7 @@ Constructs a new api instance
 
 
 #### Arguments
-* $apiKey **mixed**
-* $domain **mixed**
+* $apiKey **string**
+* $domain **string**
 
 
