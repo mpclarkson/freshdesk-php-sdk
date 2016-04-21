@@ -12,8 +12,9 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Forum resource
+ * Topic resource
  *
+ * @internal
  * @package Freshdesk\Resources
  */
 class Topic extends AbstractResource

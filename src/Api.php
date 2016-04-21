@@ -13,10 +13,14 @@ use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
 use Freshdesk\Exceptions\ValidationException;
 use Freshdesk\Resources\Agent;
+use Freshdesk\Resources\Category;
+use Freshdesk\Resources\Comment;
 use Freshdesk\Resources\Company;
 use Freshdesk\Resources\Contact;
+use Freshdesk\Resources\Forum;
 use Freshdesk\Resources\Group;
 use Freshdesk\Resources\Ticket;
+use Freshdesk\Resources\Topic;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
@@ -65,6 +69,36 @@ class Api
     public $tickets;
 
     /**
+     * Access the Category resources
+     *
+     * @var Ticket
+     */
+    public $categories;
+
+    /**
+     * Access the Forum resources
+     *
+     * @var Ticket
+     */
+    public $forums;
+
+    /**
+     * Access the Topic resources
+     *
+     * @var Ticket
+     */
+    public $topics;
+
+    /**
+     * Access the Comment resources
+     *
+     * @var Ticket
+     */
+    public $comments;
+
+    //Internal
+
+    /**
      * @internal
      * @var Client
      */
@@ -106,6 +140,12 @@ class Api
         $this->contacts = new Contact($this);
         $this->groups = new Group($this);
         $this->tickets = new Ticket($this);
+
+        //Discussions
+        $this->categories = new Category($this);
+        $this->forums = new Forum($this);
+        $this->topics = new Topic($this);
+        $this->comments = new Comment($this);
     }
 
     /**

@@ -17,6 +17,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Forum resource
  *
+ * @internal
  * @package Freshdesk\Resources
  */
 class Forum extends AbstractResource

@@ -42,6 +42,10 @@ class ApiTest extends TestCase
             ['contacts'],
             ['groups'],
             ['tickets'],
+            ['categories'],
+            ['forums'],
+            ['topics'],
+            ['comments'],
         ];
     }
 }

@@ -15,6 +15,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Agent resources
  *
+ * @internal
  * @package Freshdesk\Resources
  */
 class Agent extends AbstractResource

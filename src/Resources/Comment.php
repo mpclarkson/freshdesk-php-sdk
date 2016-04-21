@@ -15,6 +15,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 /**
  * Comment resource
  *
+ * @internal
  * @package Freshdesk\Resources
  */
 class Comment extends AbstractResource

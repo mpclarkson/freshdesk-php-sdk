@@ -14,11 +14,12 @@ use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
 /**
- * Form categories
+ * Forum category resource
  *
+ * @internal
  * @package Freshdesk\Resources
  */
-class Categories extends AbstractResource
+class Category extends AbstractResource
 {
 
     use AllTrait, CreateTrait, ViewTrait, UpdateTrait, DeleteTrait;
