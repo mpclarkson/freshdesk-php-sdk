@@ -14,12 +14,12 @@ use \Freshdesk\Api;
 
 $api = new Api("your_freshdesk_api_key", "your_freshdesk_domain");
 
-$all = $api->tickets->all(); //List tickets (page 1)
-$some = $api->tickets->all(['page' => 2]); //List all tickets (page 2)
-$new = $api->tickets->create($data); //Create a new ticket
-$updated = $api->tickets->update($data); //Update a ticket
-$api->tickets->delete($id); //Delete a ticket
-$existing = $api->tickets->view($id); //View a ticket
+$all = $api->tickets->all();
+$some = $api->tickets->all(['page' => 2]);
+$new = $api->tickets->create($data);
+$updated = $api->tickets->update($data);
+$api->tickets->delete($id);
+$existing = $api->tickets->view($id);
 
 //Responses are simple arrays, e.g.:
 $id = $existing['id'];
@@ -145,10 +145,10 @@ This is a work in progress and PRs are welcome.
 Nearly all api calls are available except for the `Solutions` and `Surveys`, 
 which Freshdesk has not yet implemented.
 
-- [] Solutions
-- [] Surveys
-- [] Uploading files is not yet supported
-- [] More tests. You can never have enough!
+- [ ] Solutions
+- [ ] Surveys
+- [ ] Uploading files is not yet supported
+- [ ] More tests. You can never have enough!
 
 ## Author
 
