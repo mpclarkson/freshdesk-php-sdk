@@ -85,7 +85,7 @@ $deleted = $api->groups->delete($groupId);
 $ticket = $api->tickets->view($filters);
 
 //Time Entries
-$time = $api->timeEntries->all($ticket['id]);
+$time = $api->timeEntries->all($ticket['id']);
 
 //Categories
 $newCategory = $api->categories->create($data);
