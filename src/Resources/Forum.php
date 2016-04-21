@@ -42,7 +42,7 @@ class Forum extends AbstractResource
     /**
      * Creates the category endpoint (for creating forums)
      *
-     * @param null $id
+     * @param integer $id
      * @return string
      */
     private function categoryEndpoint($id = null)

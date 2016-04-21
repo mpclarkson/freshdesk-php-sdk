@@ -12,7 +12,7 @@ trait MonitorTrait
 {
 
     /**
-     * @param null $end string
+     * @param string $end string
      * @return string
      */
     abstract protected function endpoint($end = null);

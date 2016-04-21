@@ -39,7 +39,7 @@ class Topic extends AbstractResource
 
     /**
      * Creates the forums endpoint
-     * @param null $id
+     * @param string $id
      * @return string
      */
     protected function forumsEndpoint($id = null)
