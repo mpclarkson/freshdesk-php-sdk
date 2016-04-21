@@ -69,12 +69,11 @@ The available methods for each resource are available via a public
 property on the api, for example:
 
 ```php
-
 //Contacts
-$contacts = $api->contacts->update($contactId, $data)
+$contacts = $api->contacts->update($contactId, $data);
 
 //Agents
-$me = $api->agents->current()
+$me = $api->agents->current();
 
 //Companies
 $company = $api->companies->create($data);
@@ -110,9 +109,15 @@ $product = $api->products->view($productId);
 $hours = $api->businessHours->all();
 
 //SLA Policy
-$policies= $api->slaPolicies-all()
+$policies= $api->slaPolicies-all();
 
 ```
+
+### Responses
+
+All responses are arrays of data. Please refer to Freshdesk's documentation
+for further information. 
+
 
 ### Filtering
 
