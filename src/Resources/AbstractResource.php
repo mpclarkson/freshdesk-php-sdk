@@ -39,7 +39,7 @@ abstract class AbstractResource
      */
     protected function endpoint($id = null)
     {
-        return $id == null ? $this->endpoint : $this->endpoint . '/' . $id;
+        return $id === null ? $this->endpoint : $this->endpoint . '/' . $id;
     }
 
     /**

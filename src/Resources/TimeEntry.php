@@ -43,7 +43,7 @@ class TimeEntry extends AbstractResource
      */
     protected function ticketsEndpoint($id = null)
     {
-        return $id == null ? $this->ticketsEndpoint : $this->ticketsEndpoint . '/' . $id;
+        return $id === null ? $this->ticketsEndpoint : $this->ticketsEndpoint . '/' . $id;
     }
 
     /**

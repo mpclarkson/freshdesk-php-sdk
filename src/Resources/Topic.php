@@ -44,7 +44,7 @@ class Topic extends AbstractResource
      */
     protected function forumsEndpoint($id = null)
     {
-        return $id == null ? $this->forumsEndpoint : $this->forumsEndpoint . '/' . $id;
+        return $id === null ? $this->forumsEndpoint : $this->forumsEndpoint . '/' . $id;
     }
 
     /**

@@ -130,7 +130,7 @@ results. For example:
 $page2 = $this->forums->all(['page' => 2, 'per_page' => 50]);
 
 //Tickets for a specific customer
-$tickets = $this->tickets->view(['company' => $companyId]);
+$tickets = $this->tickets->view(['company_id' => $companyId]);
 
 ```
 

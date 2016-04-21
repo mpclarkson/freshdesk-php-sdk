@@ -44,7 +44,7 @@ class Comment extends AbstractResource
      */
     protected function topicsEndpoint($id = null)
     {
-        return $id == null ? $this->topicsEndpoint : $this->topicsEndpoint . '/' . $id;
+        return $id === null ? $this->topicsEndpoint : $this->topicsEndpoint . '/' . $id;
     }
 
     /**

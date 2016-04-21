@@ -47,7 +47,7 @@ class Forum extends AbstractResource
      */
     private function categoryEndpoint($id = null)
     {
-        return $id == null ? $this->categoryEndpoint : $this->categoryEndpoint . '/' . $id;
+        return $id === null ? $this->categoryEndpoint : $this->categoryEndpoint . '/' . $id;
     }
 
     /**
