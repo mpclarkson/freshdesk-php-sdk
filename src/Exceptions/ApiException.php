@@ -28,28 +28,32 @@ class ApiException extends Exception
      * UnsupportedContentTypeException|ValidationException
      */
      public static function create(RequestException $e) {
-        switch ($e->getResponse()->getStatusCode()) {
-            case 400:
-                return new ValidationException($e);
-            case 401:
-                return new AuthenticationException($e);
-            case 403:
-                return new AccessDeniedException($e);
-            case 404:
-                return new NotFoundException($e);
-            case 405:
-                return new MethodNotAllowedException($e);
-            case 406:
-                return new UnsupportedAcceptHeaderException($e);
-            case 409:
-                return new ConflictingStateException($e);
-            case 415:
-                return new UnsupportedContentTypeException($e);
-            case 429:
-                return new RateLimitExceededException($e);
-            default:
-                return new ApiException($e);
-        }
+
+         if($response = $e->getResponse()) {
+             
+             switch ($response->getStatusCode()) {
+                 case 400:
+                     return new ValidationException($e);
+                 case 401:
+                     return new AuthenticationException($e);
+                 case 403:
+                     return new AccessDeniedException($e);
+                 case 404:
+                     return new NotFoundException($e);
+                 case 405:
+                     return new MethodNotAllowedException($e);
+                 case 406:
+                     return new UnsupportedAcceptHeaderException($e);
+                 case 409:
+                     return new ConflictingStateException($e);
+                 case 415:
+                     return new UnsupportedContentTypeException($e);
+                 case 429:
+                     return new RateLimitExceededException($e);
+             }
+         }
+
+         return new ApiException($e);
     }
 
     /**
