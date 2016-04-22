@@ -55,5 +55,4 @@ trait ViewTrait
     {
         return $this->api()->request('GET', $this->endpoint($id), null, $query);
     }
-
 }

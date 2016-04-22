@@ -1,7 +1,4 @@
-.idea
-.settings
-.DS_Store
 vendor
 docs/phpdoc-cache-*
 node_modules
-#composer.lock
+composer.lock

@@ -52,5 +52,4 @@ trait AllTrait
     {
         return $this->api()->request('GET', $this->endpoint(), null, $query);
     }
-
 }

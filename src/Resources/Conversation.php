@@ -96,5 +96,4 @@ class Conversation extends AbstractResource
     {
         return $this->api()->request('POST', $this->ticketsEndpoint($id . '/note'), $data);
     }
-
 }

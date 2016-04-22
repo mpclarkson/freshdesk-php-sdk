@@ -12,12 +12,8 @@ use Freshdesk\Exceptions\AccessDeniedException;
 use Freshdesk\Exceptions\ApiException;
 use Freshdesk\Exceptions\AuthenticationException;
 use Freshdesk\Exceptions\ConflictingStateException;
-use Freshdesk\Exceptions\MethodNotAllowedException;
-use Freshdesk\Exceptions\NotFoundException;
 use Freshdesk\Exceptions\RateLimitExceededException;
-use Freshdesk\Exceptions\UnsupportedAcceptHeaderException;
 use Freshdesk\Exceptions\UnsupportedContentTypeException;
-use Freshdesk\Exceptions\ValidationException;
 use Freshdesk\Resources\Agent;
 use Freshdesk\Resources\BusinessHour;
 use Freshdesk\Resources\Category;
@@ -314,5 +310,4 @@ class Api
         $this->slaPolicies = new SLAPolicy($this);
         $this->businessHours = new BusinessHour($this);
     }
-
 }

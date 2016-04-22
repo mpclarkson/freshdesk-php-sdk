@@ -55,5 +55,4 @@ class Company extends AbstractResource
     {
         return $this->api()->request('GET', '/company_fields', null, $query);
     }
-
 }

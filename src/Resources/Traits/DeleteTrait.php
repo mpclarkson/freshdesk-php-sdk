@@ -52,5 +52,4 @@ trait DeleteTrait
     {
         return $this->api()->request('DELETE', $this->endpoint($id));
     }
-
 }

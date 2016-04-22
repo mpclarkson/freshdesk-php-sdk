@@ -53,5 +53,4 @@ class Agent extends AbstractResource
     {
         return $this->api()->request('GET', $this->endpoint('me'), null, $query);
     }
-
 }

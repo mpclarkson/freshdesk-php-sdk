@@ -54,5 +54,4 @@ trait UpdateTrait
     {
         return $this->api()->request('PUT', $this->endpoint($id), $data);
     }
-
 }
