@@ -157,7 +157,6 @@ which Freshdesk has not yet implemented.
 The library was written and maintained by [Matthew Clarkson](http://mpclarkson.github.io/) 
 from [Hilenium](https://hilenium.com).
 
-
 ## Reference
 
 * [Freshdesk API Documentation](https://developer.freshdesk.com/api/)
