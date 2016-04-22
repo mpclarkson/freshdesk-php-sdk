@@ -14,6 +14,8 @@
 
 * Include tests
 
+* Update the documentation by running `./builddocs`
+
 Thanks!
 
 Matt

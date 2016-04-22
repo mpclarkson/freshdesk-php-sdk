@@ -121,7 +121,6 @@ $policies = $api->slaPolicies-all();
 All responses are arrays of data. Please refer to Freshdesk's documentation
 for further information. 
 
-
 ### Filtering
 
 All `GET` requests accept an optional `array $query` parameter to filter
@@ -141,9 +140,8 @@ filtering `GET` requests.
 
 ## Contributing
 
-This is a work in progress and PRs are welcome.
-
-When submitting PRs please ensure you include tests.
+This is a work in progress and PRs are welcome. Please read the 
+[contributing guide](.github/CONTRIBUTING.md).
 
 Nearly all api calls are available except for the `Solutions` and `Surveys`, 
 which Freshdesk has not yet implemented.
@@ -152,6 +150,7 @@ which Freshdesk has not yet implemented.
 - [ ] Surveys
 - [ ] Uploading files is not yet supported
 - [ ] More tests. You can never have enough!
+- [ ] Nicer documentation
 
 ## Author
 
