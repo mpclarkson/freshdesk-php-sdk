@@ -26,5 +26,4 @@
     "autoload-dev": {
         "psr-4": { "Freshdesk\\tests\\": "tests/" }
     }
-
 }

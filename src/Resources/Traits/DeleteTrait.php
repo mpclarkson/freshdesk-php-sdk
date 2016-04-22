@@ -50,7 +50,7 @@ trait DeleteTrait
      */
     public function delete($id)
     {
-        $this->api()->request('DELETE', $this->endpoint($id));
+        return $this->api()->request('DELETE', $this->endpoint($id));
     }
 
 }

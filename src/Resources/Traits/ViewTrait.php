@@ -53,7 +53,7 @@ trait ViewTrait
      */
     public function view($id, array $query = null)
     {
-        $this->api()->request('GET', $this->endpoint($id), null, $query);
+        return $this->api()->request('GET', $this->endpoint($id), null, $query);
     }
 
 }

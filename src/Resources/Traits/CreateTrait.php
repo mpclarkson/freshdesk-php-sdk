@@ -51,6 +51,6 @@ trait CreateTrait
      */
     public function create(array $data)
     {
-        $this->api()->request('POST', $this->endpoint(), $data);
+        return $this->api()->request('POST', $this->endpoint(), $data);
     }
 }

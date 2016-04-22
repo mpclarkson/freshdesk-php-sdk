@@ -78,5 +78,4 @@ class Forum extends AbstractResource
     {
         return $this->api()->request('POST', $this->categoryEndpoint($id), $data);
     }
-
 }

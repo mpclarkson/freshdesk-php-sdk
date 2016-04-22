@@ -36,6 +36,7 @@ trait AllTrait
      *
      * @api
      * @param array|null $query
+     * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
      * @throws \Freshdesk\Exceptions\AuthenticationException
@@ -49,7 +50,7 @@ trait AllTrait
      */
     public function all(array $query = null)
     {
-        $this->api()->request('GET', $this->endpoint(), null, $query);
+        return $this->api()->request('GET', $this->endpoint(), null, $query);
     }
 
 }
