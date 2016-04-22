@@ -2,8 +2,9 @@
 
 [![Build Status](https://travis-ci.org/mpclarkson/freshdesk-php-sdk.svg?branch=master)](https://travis-ci.org/mpclarkson/freshdesk-php-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpclarkson/freshdesk-php-sdk/?branch=master)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/5cb7004a-ac48-4fe2-88a4-79341e3c03d6.svg)](https://insight.sensiolabs.com/projects/5cb7004a-ac48-4fe2-88a4-79341e3c03d6)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5cb7004a-ac48-4fe2-88a4-79341e3c03d6/mini.png)](https://insight.sensiolabs.com/projects/5cb7004a-ac48-4fe2-88a4-79341e3c03d6)
 [![Packagist](https://img.shields.io/packagist/v/mpclarkson/freshdesk-php-sdk.svg)](https://packagist.org/packages/mpclarkson/freshdesk-php-sdk)
+<!--[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/5cb7004a-ac48-4fe2-88a4-79341e3c03d6.svg)](https://insight.sensiolabs.com/projects/5cb7004a-ac48-4fe2-88a4-79341e3c03d6)-->
 
 This is a PHP 5.5+ SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 
