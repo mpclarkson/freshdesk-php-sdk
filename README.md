@@ -27,7 +27,13 @@ $first = $all[0];
 
 ```
 
+## Framework Integration
+
+- Symfony - [FreshdeskBundle](https://github.com/mpclarkson/freshdesk-bundle) 
+- Laravel/Lumen - [Freshdesk Larvel Service Provider](https://github.com/mpclarkson/freshdesk-laravel) .
+
 ## Installation
+
 To integrate this library into your application, use [Composer](https://getcomposer.org).
 
 Add `mpclarkson/freshdesk-php-sdk` to your **composer.json** file:
@@ -38,7 +44,6 @@ Add `mpclarkson/freshdesk-php-sdk` to your **composer.json** file:
         "mpclarkson/freshdesk-php-sdk": "dev-master"
     }
 }
-
 ```
 
 Then run:
@@ -112,7 +117,7 @@ $product = $api->products->view($productId);
 $hours = $api->businessHours->all();
 
 //SLA Policy
-$policies = $api->slaPolicies-all();
+$policies = $api->slaPolicies->all();
 
 ```
 
