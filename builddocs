@@ -3,4 +3,4 @@
 ./vendor/bin/phpdocmd docs/structure.xml docs
 rm -rf ./docs/phpdoc-cache-*
 git add .
-git commit -m "updated documentation"
+git commit -m "Updated documentation [ci skip]"
