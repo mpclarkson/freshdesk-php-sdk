@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./vendor/bin/phpdoc  -d src -t docs/ --template="xml"
+./vendor/bin/phpdoc  -d src -t docs/ --template="xml" --title="Freshdesk PHP SDK (API v2) Documentation"
 ./vendor/bin/phpdocmd docs/structure.xml docs
 rm -rf ./docs/phpdoc-cache-*
 git add .
