@@ -10,7 +10,7 @@ This is a PHP 5.5+ SDK for the [Freshdesk](https://www.freshdesk.com) API v2.
 If you have questions, please contact me or open an issue on GitHub.
 
 ## Quick Start
-```php
+```phpg
 require __DIR__ . '/vendor/autoload.php';
 use \Freshdesk\Api;
 
