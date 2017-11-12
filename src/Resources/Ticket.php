@@ -134,10 +134,10 @@ class Ticket extends AbstractResource
     /**
      * Filters by ticket fields
      *
-     * Make sure to pass a valid $query string example: "type:question"
+     * Make sure to pass a valid $filtersQuery string example: "type:question"
      *
      * @api
-     * @param string $query
+     * @param string $filterQuery
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -150,11 +150,11 @@ class Ticket extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function search(string $query)
+    public function search(string $filtersQuery)
     {
         $end = '/search'.$this->endpoint();
         $query = [
-            'query' => '"'.$query.'"',
+            'query' => '"'.$filtersQuery.'"',
         ];
         return $this->api()->request('GET', $end, null, $query);
     }
