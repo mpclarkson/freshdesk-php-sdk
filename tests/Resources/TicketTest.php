@@ -31,6 +31,7 @@ class TicketApiTest extends TestCase
             ['fields'],
             ['conversations'],
             ['timeEntries'],
+            ['search']
         ];
     }
 
