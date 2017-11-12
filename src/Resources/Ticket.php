@@ -137,7 +137,7 @@ class Ticket extends AbstractResource
      * Make sure to pass a valid $filtersQuery string example: "type:question"
      *
      * @api
-     * @param string $filterQuery
+     * @param string $filtersQuery
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
