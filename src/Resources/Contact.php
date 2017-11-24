@@ -85,6 +85,6 @@ class Contact extends AbstractResource
     {
         $end = $id . '/make_agent';
 
-        return $this->api()->request('GET', $this->endpoint($end), null, $query);
+        return $this->api()->request('PUT', $this->endpoint($end), null, $query);
     }
 }
