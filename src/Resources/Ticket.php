@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matt
- * Date: 20/04/2016
- * Time: 2:32 PM
- */
-
 namespace Freshdesk\Resources;
 
 use Freshdesk\Resources\Traits\AllTrait;
@@ -157,5 +150,24 @@ class Ticket extends AbstractResource
             'query' => '"'.$filtersQuery.'"',
         ];
         return $this->api()->request('GET', $end, null, $query);
+    }
+    
+    
+    /**
+     * @param array $data
+     * @return mixed|null
+     * @throws \Freshdesk\Exceptions\AccessDeniedException
+     * @throws \Freshdesk\Exceptions\ApiException
+     * @throws \Freshdesk\Exceptions\AuthenticationException
+     * @throws \Freshdesk\Exceptions\ConflictingStateException
+     * @throws \Freshdesk\Exceptions\NotFoundException
+     * @throws \Freshdesk\Exceptions\RateLimitExceededException
+     * @throws \Freshdesk\Exceptions\UnsupportedContentTypeException
+     * @throws \Freshdesk\Exceptions\MethodNotAllowedException
+     * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
+     * @throws \Freshdesk\Exceptions\ValidationException
+     */
+    public function createOutboundEmail($data = []) {
+        return $this->api()->request('POST', $this->endpoint('outbound_email'), $data);
     }
 }
