@@ -7,6 +7,11 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Matthew Clarkson",
+            "email": "mpclarkson@hilenium.com",
+            "homepage": "http://mpclarkson.github.io/"
+        },
+        {
             "name": "SkySilk",
             "homepage": "https://github.com/SkysilkInc/"
         }
