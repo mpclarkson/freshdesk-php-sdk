@@ -1,15 +1,14 @@
 {
-    "name": "mpclarkson/freshdesk-php-sdk",
+    "name": "skysilk/freshdesk-php-sdk",
     "description": "PHP SDK for the Freshdesk API (v2)",
     "type": "library",
-    "homepage": "https://github.com/mpclarkson/freshdesk-php-sdk",
+    "homepage": "https://github.com/SkysilkInc/freshdesk-php-sdk",
     "keywords": ["freshdesk", "customer service", "support", "help desk", "api"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Matthew Clarkson",
-            "email": "mpclarkson@hilenium.com",
-            "homepage": "http://mpclarkson.github.io/"
+            "name": "SkySilk",
+            "homepage": "https://github.com/SkysilkInc/"
         }
     ],
     "require": {
