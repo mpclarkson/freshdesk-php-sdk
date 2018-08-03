@@ -26,12 +26,12 @@ class TicketApiTest extends TestCase
             ['view'],
             ['update'],
             ['delete'],
+            ['filter'],
             ['fields'],
             ['restore'],
             ['fields'],
             ['conversations'],
-            ['timeEntries'],
-            ['search']
+            ['timeEntries']
         ];
     }
 
