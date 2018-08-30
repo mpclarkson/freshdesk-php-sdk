@@ -216,7 +216,12 @@ class Api
      */
     public function request($method, $endpoint, array $data = null, array $query = null)
     {
-        $options = ['json' => $data];
+        $key = 'json';
+        if ($this->hasAttachments($data)) {
+            $data = $this->formatDataForMultipart($data);
+            $key = 'multipart';
+        }
+        $options = [$key => $data];
 
         if (isset($query)) {
             $options['query'] = $query;
@@ -225,6 +230,49 @@ class Api
         $url = $this->baseUrl . $endpoint;
 
         return $this->performRequest($method, $url, $options);
+    }
+
+    /**
+     * Checks for attachments in the $data payload
+     *
+     * @internal
+     *
+     * @param $data
+     */
+    private function hasAttachments($data)
+    {
+        return (isset($data['attachments']) && count($data['attachments']) > 0);
+    }
+
+
+    /**
+     * Formats the data into a Guzzle Mulitpart request format
+     *
+     * @internal
+     *
+     * @param $data
+     */
+    private function formatDataForMultipart($data)
+    {
+        $multipartData = [];
+
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $k => $v) {
+                    $multipartData[] = [
+                        'name' => sprintf('%s[]', $key),
+                        'contents' => $v,
+                        'filename' => sprintf('file%d.jpg', $k),
+                    ];
+                }
+            } else {
+                $multipartData[] = [
+                    'name' => $key,
+                    'contents' => $value,
+                ];
+            }
+        }
+        return $multipartData;
     }
 
     /**
