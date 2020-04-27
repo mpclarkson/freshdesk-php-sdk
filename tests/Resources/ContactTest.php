@@ -29,6 +29,7 @@ class ContactApiTest extends TestCase
             ['delete'],
             ['fields'],
             ['makeAgent'],
+            ['restore'],
         ];
     }
 }

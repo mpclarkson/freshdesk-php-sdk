@@ -28,6 +28,7 @@ class CompanyApiTest extends TestCase
             ['update'],
             ['delete'],
             ['fields'],
+            ['autocomplete'],
         ];
     }
 }
