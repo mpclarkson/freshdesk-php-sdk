@@ -125,6 +125,22 @@ Updates the resources for the given $id with the supplied data/.
 
 
 
+### restore
+
+    array|null Freshdesk\Resources\Contact::restore(integer $id)
+
+Restore a contact
+
+Restore a soft deleted cotnact.
+
+* Visibility: **public**
+
+
+#### Arguments
+* $id **integer** - &lt;p&gt;The resource id&lt;/p&gt;
+
+
+
 ### delete
 
     array|null Freshdesk\Resources\Contact::delete(\Freshdesk\Resources\Traits\in $id)

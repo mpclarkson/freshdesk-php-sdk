@@ -55,4 +55,26 @@ class Company extends AbstractResource
     {
         return $this->api()->request('GET', '/company_fields', null, $query);
     }
+
+    /**
+     * Search companies by filter
+     *
+     * @api
+     * @param array|null $query
+     * @return mixed|null
+     * @throws \Freshdesk\Exceptions\AccessDeniedException
+     * @throws \Freshdesk\Exceptions\ApiException
+     * @throws \Freshdesk\Exceptions\AuthenticationException
+     * @throws \Freshdesk\Exceptions\ConflictingStateException
+     * @throws \Freshdesk\Exceptions\NotFoundException
+     * @throws \Freshdesk\Exceptions\RateLimitExceededException
+     * @throws \Freshdesk\Exceptions\UnsupportedContentTypeException
+     * @throws \Freshdesk\Exceptions\MethodNotAllowedException
+     * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
+     * @throws \Freshdesk\Exceptions\ValidationException
+     */
+    public function autocomplete(array $query = null)
+    {
+        return $this->api()->request('GET', $this->endpoint().'/autocomplete', null, $query);
+    }
 }

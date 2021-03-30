@@ -87,4 +87,27 @@ class Contact extends AbstractResource
 
         return $this->api()->request('GET', $this->endpoint($end), null, $query);
     }
+
+    /**
+     * Restore a contact
+     *
+     *
+     * @param int $id The contact id
+     * @return array|null
+     * @throws \Freshdesk\Exceptions\AccessDeniedException
+     * @throws \Freshdesk\Exceptions\ApiException
+     * @throws \Freshdesk\Exceptions\AuthenticationException
+     * @throws \Freshdesk\Exceptions\ConflictingStateException
+     * @throws \Freshdesk\Exceptions\NotFoundException
+     * @throws \Freshdesk\Exceptions\RateLimitExceededException
+     * @throws \Freshdesk\Exceptions\UnsupportedContentTypeException
+     * @throws \Freshdesk\Exceptions\MethodNotAllowedException
+     * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
+     * @throws \Freshdesk\Exceptions\ValidationException
+     */
+    public function restore($id)
+    {
+        $end = $id . '/restore';
+        return $this->api()->request('PUT', $this->endpoint($end), null, []);
+    }
 }

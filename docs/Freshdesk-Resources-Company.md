@@ -52,6 +52,22 @@ Use filters ($query) to view only specific resources (those which match the crit
 
 
 
+### autocomplete
+
+    mixed Freshdesk\Resources\Company::autocomplete(array|null $query)
+
+List companies by filter.
+
+Use filters ($query) to view only specific resources (those which match the criteria that you choose).
+
+* Visibility: **public**
+
+
+#### Arguments
+* $query **array|null**
+
+
+
 ### create
 
     array|null Freshdesk\Resources\Company::create(array $data)
