@@ -192,7 +192,9 @@ class Api
         $this->baseUrl = sprintf('https://%s.freshdesk.com/api/v2', $domain);
 
         $this->client = new Client([
-                'auth' => [$apiKey, 'X']
+                'defaults' => [
+                    'auth' => [$apiKey, 'X']
+                ]
             ]
         );
 
