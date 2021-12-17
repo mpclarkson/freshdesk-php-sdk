@@ -138,6 +138,7 @@ class Ticket extends AbstractResource
      *
      * @api
      * @param string $filtersQuery
+     * @param int $page The page number (1 to 10)
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -150,11 +151,12 @@ class Ticket extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function search(string $filtersQuery)
+    public function search(string $filtersQuery, $page = 1)
     {
         $end = '/search'.$this->endpoint();
         $query = [
             'query' => '"'.$filtersQuery.'"',
+            'page' => $page
         ];
         return $this->api()->request('GET', $end, null, $query);
     }
