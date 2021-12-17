@@ -81,10 +81,10 @@ class Contact extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function makeAgent($id, array $query = null)
+	public function makeAgent($id, array $query = [])
     {
         $end = $id . '/make_agent';
 
-        return $this->api()->request('GET', $this->endpoint($end), null, $query);
+        return $this->api()->request('PUT', $this->endpoint($end), $query);
     }
 }
