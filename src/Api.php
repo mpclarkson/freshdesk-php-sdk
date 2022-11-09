@@ -27,6 +27,7 @@ use Freshdesk\Resources\Group;
 use Freshdesk\Resources\Product;
 use Freshdesk\Resources\SLAPolicy;
 use Freshdesk\Resources\Ticket;
+use Freshdesk\Resources\ArchivedTicket;
 use Freshdesk\Resources\TimeEntry;
 use Freshdesk\Resources\Topic;
 use GuzzleHttp\Client;
@@ -82,6 +83,14 @@ class Api
      * @var Ticket
      */
     public $tickets;
+	
+	/**
+     * Archived ticket resources
+     *
+     * @api
+     * @var AchivedTicket
+     */
+    public $archivedTickets;
 
     /**
      * TimeEntry resources
@@ -326,6 +335,7 @@ class Api
 
         //Tickets
         $this->tickets = new Ticket($this);
+		$this->archivedTickets = new ArchivedTicket($this);
         $this->timeEntries = new TimeEntry($this);
         $this->conversations = new Conversation($this);
 
