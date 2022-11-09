@@ -183,18 +183,20 @@ class Api
      * @api
      * @param string $apiKey
      * @param string $domain
+	 * @param array $options
      * @throws Exceptions\InvalidConfigurationException
      */
-    public function __construct($apiKey, $domain)
+    public function __construct($apiKey, $domain, $options = array())
     {
         $this->validateConstructorArgs($apiKey, $domain);
 
         $this->baseUrl = sprintf('https://%s.freshdesk.com/api/v2', $domain);
 
-        $this->client = new Client([
+		$auth_array = [
                 'auth' => [$apiKey, 'X']
-            ]
-        );
+            ];
+			
+        $this->client = new Client(array_merge($auth_array, $options));
 
         $this->setupResources();
     }
