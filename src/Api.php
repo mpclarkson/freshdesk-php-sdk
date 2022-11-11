@@ -216,7 +216,40 @@ class Api
      */
     public function request($method, $endpoint, array $data = null, array $query = null)
     {
-        $options = ['json' => $data];
+
+		if (isset($data['attachments'])) {
+			// Has file attachments, so we can't use the json property.
+			// Instead, we have to use the "multipart" property
+			$attachments = $data['attachments'];
+			unset($data['attachments']);
+
+			if (!is_array($attachments)) {
+				$attachments = [$attachments];
+			}
+
+			$multiparts = [];
+			foreach($attachments as $attachment) {
+				$multiparts[] = [
+					'name' => 'attachments[]',
+					'contents' => $attachment, // $attachment is a resource from fopen('/path/to/file', 'r')
+				];
+			}
+			foreach($data as $key => $value) {
+				$multiparts[] = [
+					'name' => $key,
+					'contents' => $value,
+				];
+			}
+
+			$options = [
+				'multipart' => $multiparts,
+			];
+		} else {
+			// normal method
+			$options = [
+				'json' => $data,
+			];
+		}
 
         if (isset($query)) {
             $options['query'] = $query;
