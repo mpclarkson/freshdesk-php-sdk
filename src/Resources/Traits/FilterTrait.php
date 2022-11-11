@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matthew
- * Date: 21/04/2016
- * Time: 9:10 AM
- */
 
 namespace Freshdesk\Resources\Traits;
 
 /**
- * All Trait
+ * Create Trait
  *
  * @package Freshdesk\Resources\Traits
  */
-trait AllTrait
+trait FilterTrait
 {
 
     /**
@@ -30,12 +24,13 @@ trait AllTrait
     abstract protected function api();
 
     /**
-     * Get a list of all items of a resource.
+     * Filter a resource
      *
-     * Use filters ($query) to view only specific resources (those which match the criteria that you choose).
+     * Filter a resource by $query
+     * Make sure to pass a valid $query string
      *
      * @api
-     * @param array|null $query
+     * @param string $query
      * @return array|null
      * @throws \Freshdesk\Exceptions\AccessDeniedException
      * @throws \Freshdesk\Exceptions\ApiException
@@ -48,8 +43,12 @@ trait AllTrait
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function all(array $query = null)
+    public function filter(string $query)
     {
-        return $this->api()->request('GET', $this->endpoint(), null, $query);
+        $end = '/search'.$this->endpoint();
+        $query = [
+            'query' => '"'.$query.'"',
+        ];
+        return $this->api()->request('GET', $end, null, $query);
     }
 }

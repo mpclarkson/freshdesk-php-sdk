@@ -17,7 +17,7 @@ class CompanyApiTest extends TestCase
         parent::setUp();
 
         $this->class = Company::class;
-    } 
+    }
 
     public function methodsThatShouldExist()
     {
@@ -27,6 +27,7 @@ class CompanyApiTest extends TestCase
             ['view'],
             ['update'],
             ['delete'],
+            ['filter'],
             ['fields'],
         ];
     }
