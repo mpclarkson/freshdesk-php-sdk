@@ -3,3 +3,4 @@ docs/phpdoc-cache-*
 node_modules
 composer.lock
 /nbproject/private/
+/.idea
