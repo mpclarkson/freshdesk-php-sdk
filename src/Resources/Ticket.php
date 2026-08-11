@@ -78,7 +78,7 @@ class Ticket extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function fields(array $query = null)
+    public function fields($query = null)
     {
         return $this->api()->request('GET', '/ticket_fields', null, $query);
     }
@@ -100,7 +100,7 @@ class Ticket extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function conversations($id, array $query = null)
+    public function conversations($id, $query = null)
     {
         $end = $id . '/conversations';
 
@@ -124,7 +124,7 @@ class Ticket extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function timeEntries($id, array $query = null)
+    public function timeEntries($id, $query = null)
     {
         $end = $id . '/time_entries';
 

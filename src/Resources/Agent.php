@@ -49,7 +49,7 @@ class Agent extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function current(array $query = null)
+    public function current($query = null)
     {
         return $this->api()->request('GET', $this->endpoint('me'), null, $query);
     }

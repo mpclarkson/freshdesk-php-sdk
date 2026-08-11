@@ -48,7 +48,7 @@ trait AllTrait
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function all(array $query = null)
+    public function all($query = null)
     {
         return $this->api()->request('GET', $this->endpoint(), null, $query);
     }

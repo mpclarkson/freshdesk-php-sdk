@@ -95,7 +95,7 @@ class Topic extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function all($id, array $query = null)
+    public function all($id, $query = null)
     {
         return $this->api()->request('GET', $this->forumsEndpoint($id . '/topics'), null, $query);
     }

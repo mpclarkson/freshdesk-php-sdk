@@ -214,7 +214,7 @@ class Api
      * @throws RateLimitExceededException
      * @throws UnsupportedContentTypeException
      */
-    public function request($method, $endpoint, array $data = null, array $query = null)
+    public function request($method, $endpoint, $data = null, $query = null)
     {
 
 		if (isset($data['attachments'])) {

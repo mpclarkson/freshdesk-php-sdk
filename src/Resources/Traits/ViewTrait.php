@@ -51,7 +51,7 @@ trait ViewTrait
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function view($id, array $query = null)
+    public function view($id, $query = null)
     {
         return $this->api()->request('GET', $this->endpoint($id), null, $query);
     }

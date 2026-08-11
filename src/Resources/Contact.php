@@ -54,7 +54,7 @@ class Contact extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function fields(array $query = null)
+    public function fields($query = null)
     {
         return $this->api()->request('GET', '/contact_fields', null, $query);
     }
@@ -81,7 +81,7 @@ class Contact extends AbstractResource
      * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
      * @throws \Freshdesk\Exceptions\ValidationException
      */
-    public function makeAgent($id, array $query = null)
+    public function makeAgent($id, $query = null)
     {
         $end = $id . '/make_agent';
 
