@@ -27,6 +27,7 @@ class ContactApiTest extends TestCase
             ['view'],
             ['update'],
             ['delete'],
+            ['filter'],
             ['fields'],
             ['makeAgent'],
         ];

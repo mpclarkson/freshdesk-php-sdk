@@ -11,6 +11,7 @@ namespace Freshdesk\Resources;
 use Freshdesk\Resources\Traits\AllTrait;
 use Freshdesk\Resources\Traits\CreateTrait;
 use Freshdesk\Resources\Traits\DeleteTrait;
+use Freshdesk\Resources\Traits\FilterTrait;
 use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
@@ -24,7 +25,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 class Ticket extends AbstractResource
 {
 
-    use AllTrait, CreateTrait, ViewTrait, UpdateTrait, DeleteTrait;
+    use AllTrait, CreateTrait, ViewTrait, UpdateTrait, DeleteTrait, FilterTrait;
 
     /**
      * The resource endpoint
@@ -35,7 +36,7 @@ class Ticket extends AbstractResource
 
     /**
      * Restore a ticket
-     * 
+     *
      * Restores a previously deleted ticket
      *
      * @api
@@ -129,33 +130,5 @@ class Ticket extends AbstractResource
         $end = $id . '/time_entries';
 
         return $this->api()->request('GET', $this->endpoint($end), null, $query);
-    }
-    
-    /**
-     * Filters by ticket fields
-     *
-     * Make sure to pass a valid $filtersQuery string example: "type:question"
-     *
-     * @api
-     * @param string $filtersQuery
-     * @return array|null
-     * @throws \Freshdesk\Exceptions\AccessDeniedException
-     * @throws \Freshdesk\Exceptions\ApiException
-     * @throws \Freshdesk\Exceptions\AuthenticationException
-     * @throws \Freshdesk\Exceptions\ConflictingStateException
-     * @throws \Freshdesk\Exceptions\NotFoundException
-     * @throws \Freshdesk\Exceptions\RateLimitExceededException
-     * @throws \Freshdesk\Exceptions\UnsupportedContentTypeException
-     * @throws \Freshdesk\Exceptions\MethodNotAllowedException
-     * @throws \Freshdesk\Exceptions\UnsupportedAcceptHeaderException
-     * @throws \Freshdesk\Exceptions\ValidationException
-     */
-    public function search(string $filtersQuery)
-    {
-        $end = '/search'.$this->endpoint();
-        $query = [
-            'query' => '"'.$filtersQuery.'"',
-        ];
-        return $this->api()->request('GET', $end, null, $query);
     }
 }

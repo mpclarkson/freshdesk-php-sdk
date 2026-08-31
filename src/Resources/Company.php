@@ -11,6 +11,7 @@ namespace Freshdesk\Resources;
 use Freshdesk\Resources\Traits\AllTrait;
 use Freshdesk\Resources\Traits\CreateTrait;
 use Freshdesk\Resources\Traits\DeleteTrait;
+use Freshdesk\Resources\Traits\FilterTrait;
 use Freshdesk\Resources\Traits\UpdateTrait;
 use Freshdesk\Resources\Traits\ViewTrait;
 
@@ -24,7 +25,7 @@ use Freshdesk\Resources\Traits\ViewTrait;
 class Company extends AbstractResource
 {
 
-    use AllTrait, CreateTrait, ViewTrait, UpdateTrait, DeleteTrait;
+    use AllTrait, CreateTrait, ViewTrait, UpdateTrait, DeleteTrait, FilterTrait;
 
     /**
      * The resource endpoint

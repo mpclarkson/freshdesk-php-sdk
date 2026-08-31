@@ -30,7 +30,7 @@ trait AllTrait
     abstract protected function api();
 
     /**
-     * Get a list of all agents.
+     * Get a list of all items of a resource.
      *
      * Use filters ($query) to view only specific resources (those which match the criteria that you choose).
      *
