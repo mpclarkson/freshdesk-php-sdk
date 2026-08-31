@@ -68,6 +68,11 @@ Group resources
 
 Ticket resources
 
+### $archivedtickets
+
+    public \Freshdesk\Resources\ArchivedTicket $archivedTickets
+
+Archived Ticket resources
 
 
 * Visibility: **public**

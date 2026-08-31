@@ -22,6 +22,7 @@ $new = $api->tickets->create($data);
 $updated = $api->tickets->update($data);
 $api->tickets->delete($id);
 $existing = $api->tickets->view($id);
+$archived = $api->archivedTickets->view($id);
 
 //Responses are simple arrays, e.g.:
 $id = $existing['id'];
