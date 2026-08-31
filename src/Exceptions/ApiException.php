@@ -85,6 +85,8 @@ class ApiException extends Exception
     public function __construct(RequestException $e)
     {
         $this->exception = $e;
+        $this->code = $e->getCode();
+        $this->message = $e->getMessage();
         parent::__construct();
     }
 }
